@@ -1,0 +1,109 @@
+.novelinfo{
+    width: 1200px;
+}
+
+.infoBox{
+    width: 100%;
+    display: flex;
+    margin-bottom: 100px;
+    /* border: 1px solid #e5e5e5; */
+    /* padding: 15px; */
+    /* box-sizing: border-box; */
+}
+
+.coverBox{
+    width: 300px;
+    height: 240px;
+}
+
+.coverImg{
+    width: 300px;
+    height: 240px;
+    border: 1px solid #e5e5e5;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.dataBox{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dataBoxTop{
+
+}
+
+.name{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.data{
+    display: flex;
+}
+
+.dataText{
+    font-size: 15px;
+    margin-right: 5px;
+    color: #9d9c9c;
+}
+
+.dataBoxBottom{
+
+}
+
+.summary{
+    font-size: 15px;
+    color: #9d9c9c;
+}
+
+.firstRound{
+    margin-top: 10px;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #9d9c9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.roundInfo{
+    font-size: 25px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.roundBox{
+    
+}
+
+.roundItem{
+    display: flex;
+    align-items: center;
+    height: 75px;
+    font-size: 20px;
+    color: black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 15px;
+}
+
+.roundImg{
+    height: 75px;
+    object-fit: cover;
+    border-radius: 2.5px;
+    margin-right: 15px;
+}
+
+.round{
+    margin-right: 10px;
+}
+
+.title:hover{
+    text-decoration: underline;
+}
