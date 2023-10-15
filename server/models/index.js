@@ -1,41 +1,39 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
+
 const Sequelize = require('sequelize');
-const process = require('process');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../config/config.json')["development"];
 const db = {};
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+let sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file !== basename &&
-      file.slice(-3) === '.js' &&
-      file.indexOf('.test.js') === -1
-    );
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
+db.User = require("./User")(sequelize, Sequelize);
+db.Novel = require("./Novel")(sequelize, Sequelize);
+db.Profile = require("./Profile")(sequelize, Sequelize);
+db.Like = require("./Like")(sequelize, Sequelize);
+db.Round = require("./Round")(sequelize, Sequelize);
+
+// User - Profile
+db.User.hasOne(db.Profile, { foreignKey: { name: 'userid', allowNull: false, unique:true }, sourceKey: 'userid' });
+db.Profile.belongsTo(db.User, { foreignKey: 'userid', sourceKey: 'userid' });
+
+// Profile - Novel
+db.Profile.hasOne(db.Novel, { foreignKey: { name: 'write_name', allowNull: false }, sourceKey: 'write_name' });
+db.Novel.belongsTo(db.Profile, { foreignKey: 'write_name', sourceKey: 'write_name' });
+
+// User - Like
+db.User.hasMany(db.Like, { foreignKey: { name: 'userid', allowNull: false, primaryKey:true }, sourceKey: 'userid' });
+db.Like.belongsTo(db.User, { foreignKey: 'userid', sourceKey: 'userid' });
+
+// Novel - Like
+db.Novel.hasMany(db.Like, { foreignKey: { name: 'novel_id', allowNull: false, primaryKey:true }, sourceKey: 'id' });
+db.Like.belongsTo(db.Novel, { foreignKey: 'novel_id', sourceKey: 'id' });
+
+// Novel - Round
+db.Novel.hasOne(db.Round, { as: 'rounds', foreignKey: { name: 'novel_id', allowNull: false, primaryKey:true }, sourceKey: 'id' });
+db.Round.belongsTo(db.Novel, { as: 'rounds', foreignKey: 'novel_id', sourceKey: 'id' });
+
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
