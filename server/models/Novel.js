@@ -1,3 +1,5 @@
+const { Sequelize } = require("sequelize");
+
 const Novel = function (sequelize, DataTypes){
     const model = sequelize.define(
         'novel',
@@ -42,7 +44,12 @@ const Novel = function (sequelize, DataTypes){
                 type:DataTypes.INTEGER,
                 allowNull:false,
                 defaultValue:0
-            }
+            },
+            createDate:{
+                type:DataTypes.DATE,
+                defaultValue: Sequelize.NOW,
+                allowNull:false,
+            },
         },
         {
             tableName:"novel",
