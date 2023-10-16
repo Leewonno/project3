@@ -18,6 +18,12 @@ router.post("/novel/round", controller.postRound);
 router.get("/novel/info", controller.getNovel);
 router.get("/novel/round", controller.getRound);
 
+router.get("/novel/main/recent", controller.getMainRecent);
+
+router.get("/search/query", controller.getSearch);
+
+router.get("/sort/getdata", controller.getSort);
+
 // router.patch("/todo/:todoId", controller.patch_todo);
 // router.delete("/todo/:todoId", controller.delete_todo);
 

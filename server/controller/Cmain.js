@@ -2,6 +2,7 @@ const models = require("../models/index");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretKey = "novelcutleewonno";
+const { Sequelize, Op } = require('sequelize');
 
 const createJwtToken = (userid, nick, write_name) => {
     try {
@@ -152,14 +153,16 @@ exports.postRound = async (req, res)=>{
 }
 
 exports.getNovel = async (req, res)=>{
-    const {id} = req.query;
-    const info = await models.Novel.findAll({ where:{id} });
-    const list = await models.Round.findAll({where:{novel_id: id}});
+    try{
+        const {id} = req.query;
+        const info = await models.Novel.findAll({ where:{id} });
+        const list = await models.Round.findAll({where:{novel_id: id}});
 
-    // console.log(info);
-    // console.log(list);
-
-    res.json({result:true, info, list});
+        res.json({result:true, info, list});
+    }
+    catch(err){
+        res.json({result:false});
+    }
 }
 
 exports.getRound = async (req, res)=>{
@@ -167,4 +170,35 @@ exports.getRound = async (req, res)=>{
     const list = await models.Round.findOne({where:{novel_id: id, round}});
     console.log(list);
     res.json({result:true, list});
+}
+
+exports.getMainRecent = async (req, res)=>{
+    const list = await models.Novel.findOne({where:{round: { [Op.gt]: 0 },}, order: [["createDate", "desc"]]});
+    console.log(list);
+    res.json({result:true, list});
+}
+
+exports.getSearch = async (req, res)=>{
+    const {query} = req.query;
+    const novelList = await models.Novel.findAll({where:{round: { [Op.gt]: 0 }, [Op.or]: [{ name: { [Op.like]: `%${query}%` } }]}});
+    const writerList = await models.Novel.findAll({where:{round: { [Op.gt]: 0 }, [Op.or]: [{ write_name: { [Op.like]: `%${query}%` } }]}});
+
+    res.json({novelList, writerList});
+}
+
+exports.getSort = async (req, res)=>{
+    const novelList = await models.Novel.findAll({
+        where: { round: { [Op.gt]: 0 } },
+        order: [['like', 'DESC']],
+        limit: 10
+      });
+      const roundList = await models.Round.findAll({
+        order: [['createDate', 'DESC']],
+        limit: 10
+      });
+
+    console.log(novelList);
+    console.log(roundList);
+
+    res.json({result:true, novelList, roundList});
 }
