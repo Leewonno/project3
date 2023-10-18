@@ -38,7 +38,7 @@ export default function Create(){
 
         const create_res = await axios({
             method:"POST",
-            url:"http://localhost:8000/novel/create",
+            url:"http://13.238.96.99/novel/create",
             data:{
                 write_name:login.writeName,
                 title,
@@ -71,7 +71,7 @@ export default function Create(){
 
         const cover_res = await axios({
             method:"POST",
-            url:"http://localhost:8000/upload/image",
+            url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/upload/image",
             data:formData,
             headers: {
                 'Content-Type': 'multipart/form-data',

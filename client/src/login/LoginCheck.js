@@ -19,7 +19,7 @@ const LoginCheck = () => {
 
 		const res = await axios({
 			method:"POST",
-			url:"http://localhost:8000/login/check",
+			url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/login/check",
 			data:{
 				token
 			}

@@ -15,7 +15,7 @@ export default function SingupBtnBox(){
         if(value.idCheck && value.pwCheck && value.writeNameCheck){
             const result = await axios({
                 method:"POST",
-                url:"http://localhost:8000/signup",
+                url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/signup",
                 data:{
                     userid: value.idInput,
                     pw:value.pwInput,
