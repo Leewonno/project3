@@ -11,9 +11,9 @@ export default function CategoryNav(){
         <nav className={nav.nav}>
             <div className={nav.box}>
                 <div>
-                    <A className={nav.a} url="/sort">연재 작품</A>
+                    <A className={nav.a} url="/sort">연재작품</A>
                 </div>
-                { login.isLogin ? (<div> <A className={nav.a} url="/edit">내 작품/글 쓰기</A> </div>) : (<div></div>) }
+                { login.isLogin ? (<div> <A className={nav.a} url="/edit">내 작품/글쓰기</A> </div>) : (<div></div>) }
                 
             </div>
         </nav>
