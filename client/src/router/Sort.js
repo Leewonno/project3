@@ -15,7 +15,7 @@ export default function Sort(){
         const getData = async ()=>{
             const res = await axios({
                 method:"GET",
-                url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/sort/getdata",
+                url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/sort/getdata",
             })
 
             console.log(res);

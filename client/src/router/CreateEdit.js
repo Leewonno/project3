@@ -22,7 +22,7 @@ export default function CreateEdit(){
         const getData = async ()=>{
             const res = await axios({
                 method:"GET",
-                url:"http://13.238.96.99/novel/edit",
+                url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/novel/edit",
                 params:{
                     id:novel_id,
                 }
@@ -59,7 +59,7 @@ export default function CreateEdit(){
 
         const update_res = await axios({
             method:"PATCH",
-            url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/patch/novel",
+            url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/patch/novel",
             data:{
                 name:title,
                 summary,
@@ -93,7 +93,7 @@ export default function CreateEdit(){
 
         const cover_res = await axios({
             method:"POST",
-            url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/upload/image",
+            url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/upload/image",
             data:formData,
             headers: {
                 'Content-Type': 'multipart/form-data',

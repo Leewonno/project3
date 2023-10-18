@@ -23,7 +23,7 @@ export default function EditPatch(){
         const getData = async ()=>{
             const res = await axios({
                 method:"GET",
-                url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/novel/round/edit",
+                url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/novel/round/edit",
                 params:{
                     novel_id,
                     round
@@ -67,7 +67,7 @@ export default function EditPatch(){
 
         const round_res = await axios({
             method:"PATCH",
-            url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/patch/round/novel",
+            url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/patch/round/novel",
             data:{
                 id:novel_id,
                 round,
