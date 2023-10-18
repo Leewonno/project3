@@ -23,7 +23,7 @@ export default function Edit(){
         const loadList = async ()=>{
             const list = await axios({
                 method:"GET",
-                url:"http://localhost:8000/novel/list",
+                url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/novel/list",
                 params:{
                     write_name:login.writeName,
                 }
@@ -83,7 +83,7 @@ export default function Edit(){
 
         const round_res = await axios({
             method:"POST",
-            url:"http://localhost:8000/novel/round",
+            url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/novel/round",
             data:{
                 novel_id:novelId,
                 round:novelRound,

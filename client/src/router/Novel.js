@@ -32,7 +32,7 @@ export default function Novel(){
         const getData = async ()=>{
             const res = await axios({
                 method:"GET",
-                url:"http://localhost:8000/novel/round",
+                url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/novel/round",
                 params:{
                     round,
                     id:params.id,
@@ -67,7 +67,7 @@ export default function Novel(){
 
         const res = await axios({
             method:"DELETE",
-            url:"http://localhost:8000/novel/round/delete",
+            url:"https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/novel/round/delete",
             data:{
                 novel_id:params.id,
                 round:round,
