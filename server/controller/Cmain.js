@@ -2,7 +2,7 @@ const models = require("../models/index");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretKey = "novelcutleewonno";
-const { Sequelize, Op } = require('sequelize');
+const { Sequelize, Op, where } = require('sequelize');
 
 const createJwtToken = (userid, nick, write_name) => {
     try {
@@ -204,7 +204,7 @@ exports.getMainRecent = async (req, res)=>{
 exports.getMainPopular = async (req, res)=>{
     const list = await models.Novel.findAll({
         where: { round: { [Op.gt]: 0 } },
-        order: [['like', 'DESC']],
+        order: [['total_view', 'DESC']],
         limit: 5
     });
 
@@ -222,7 +222,7 @@ exports.getSearch = async (req, res)=>{
 exports.getSort = async (req, res)=>{
     const novelList = await models.Novel.findAll({
         where: { round: { [Op.gt]: 0 } },
-        order: [['like', 'DESC']],
+        order: [['total_view', 'DESC']],
         limit: 10
     });
     const roundList = await models.Round.findAll({
@@ -340,3 +340,23 @@ exports.deleteRound = async (req, res)=>{
     }
 }
 
+exports.patchView = async (req, res)=>{
+
+    try{
+        const {id, round} = req.body;
+
+        const res_round = await models.Round.findOne({where:{novel_id:id, round}});
+        const res_novel = await models.Novel.findOne({where:{id}});
+
+        res_round.view += 1;
+        res_novel.total_view += 1;
+        await res_round.save();
+        await res_novel.save();
+
+        res.json({result:true});
+    }catch(err){
+        console.log(err);
+        res.json({result:false});
+    }
+    
+}
