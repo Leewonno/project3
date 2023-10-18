@@ -59,6 +59,7 @@ export default function Sort(){
                                     <div className={sort.recentNovelTitle}>{value.title}</div>
                                     <div className={sort.recentNameBox}>
                                         <div className={sort.recentName}>{value.novel_name}</div>
+                                        <div className={sort.recentName}>|</div>
                                         <div className={sort.recentWriterName}>{value.novel_writer}</div>
                                     </div>
                                 </div>

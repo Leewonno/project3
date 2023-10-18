@@ -19,6 +19,7 @@
     padding-left: 10px;
     padding-right: 10px;
     border: 1px solid #e5e5e5;
+    box-sizing: border-box;
 }
 
 .title{
@@ -27,4 +28,30 @@
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+}
+
+.signupBtn{
+    width: 300px;
+    background-color: #6b7280;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.cancelBtn{
+    width: 300px;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    border: 1px solid #6b7280;
 }

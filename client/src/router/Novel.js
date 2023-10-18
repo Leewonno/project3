@@ -44,6 +44,21 @@ export default function Novel(){
             const gapDelete = res.data.list.content.split('\n').filter(Boolean);
             setContent(gapDelete);
         }
+
+        const updateView = async ()=>{
+            const res = await axios({
+                method:"PATCH",
+                url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/novel/round/view",
+                data:{
+                    round,
+                    id:params.id,
+                }
+            })
+
+            console.log(res);
+        }
+
+        updateView();
         getData();
     }, [round]);
 

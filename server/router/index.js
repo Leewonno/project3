@@ -36,6 +36,8 @@ router.patch("/patch/round/novel", controller.patchRound);
 router.delete("/novel/delete", controller.deleteNovel);
 router.delete("/novel/round/delete", controller.deleteRound);
 
+router.patch("/novel/round/view", controller.patchView);
+
 // router.patch("/todo/:todoId", controller.patch_todo);
 // router.delete("/todo/:todoId", controller.delete_todo);
 

@@ -5,7 +5,7 @@
 }
 
 .popularBox{
-    width: 550px;
+    width: 575px;
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #e5e5e5;
@@ -61,7 +61,7 @@
 }
 
 .recentBox{
-    width: 550px;
+    width: 575px;
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #e5e5e5;

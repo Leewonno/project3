@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import SignupContext from "../store/signup-context";
+import signup from "../css/signup.module.css";
 
 import axios from "axios";
 import Button from "../atom/Button";
@@ -39,7 +40,7 @@ export default function SingupBtnBox(){
     }
 
     return <>
-        <Button onClick={()=>handleSignup()}>회원가입</Button>
-        <Button onClick={()=>navigate("/login")}>취소</Button>
+        <Button onClick={()=>handleSignup()} className={signup.signupBtn}>회원가입</Button>
+        <Button onClick={()=>navigate("/login")} className={signup.cancelBtn}>취소</Button>
     </>
 }
