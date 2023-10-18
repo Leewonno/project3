@@ -19,7 +19,7 @@ export default function LoginBox(){
         console.log(value);
         const result = await axios({
             method:"POST",
-            url:'https://port-0-project3-server-euegqv2blnvezvrk.sel5.cloudtype.app/login',
+            url:'https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/login',
             data:{
                 userid:value.loginIdInput,
                 pw:value.loginPwInput,
