@@ -10,6 +10,8 @@ import Create from './router/Create';
 import Edit from './router/Edit';
 import NovelInfo from './router/NovelInfo';
 import Novel from './router/Novel';
+import CreateEdit from './router/CreateEdit';
+import EditPatch from './router/EditPatch';
 
 const router = createBrowserRouter([
   {
@@ -41,8 +43,16 @@ const router = createBrowserRouter([
         element: <Create />,
       },
       {
+        path: 'create/detail',
+        element: <CreateEdit />,
+      },
+      {
         path: 'edit',
         element: <Edit />,
+      },
+      {
+        path: 'edit/detail',
+        element: <EditPatch />,
       },
       {
         path: 'n',

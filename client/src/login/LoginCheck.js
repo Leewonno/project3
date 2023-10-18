@@ -30,6 +30,7 @@ const LoginCheck = () => {
 			value.setNickName(res.data.nick);
 			value.setId(res.data.id);
 			value.setWriteName(res.data.write_name);
+			// console.log(res.data.id)
 		}
 		else{
 			value.setIsLogin(false);

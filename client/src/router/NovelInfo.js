@@ -3,11 +3,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import A from '../atom/A';
 import novelinfo from "../css/novelInfo.module.css";
+import LoginStateContext from '../store/loginState-context';
+import { useContext } from "react";
 
 export default function NovelInfo(){
 
     const params = useParams();
     const navigate = useNavigate();
+
+    const login = useContext(LoginStateContext);
 
     const [info, setInfo] = useState([]);
     const [list, setList] = useState([]);
@@ -42,6 +46,31 @@ export default function NovelInfo(){
         navigate('/n/'+params.id+"/detail?round="+firstRound);
     }
 
+    const handleDelete = async ()=>{
+
+        if(window.confirm("정말 삭제하시겠습니까?")){
+
+        }
+        else{
+            return;
+        }
+
+        const res = await axios({
+            method:"DELETE",
+            url:"http://localhost:8000/novel/delete",
+            data:{
+                id:params.id,
+            }
+        })
+
+        console.log(res);
+
+        if(res.data.result){
+            alert("삭제되었습니다.");
+            navigate('/');
+        }
+    }
+
     return <>
         <div className={novelinfo.novelinfo}>
             {info.map((value, index)=>{
@@ -64,7 +93,17 @@ export default function NovelInfo(){
                         
                         <div className={novelinfo.dataBoxBottom}>
                             <div className={novelinfo.summary}>{value.summary}</div>
-                            <div><button className={novelinfo.firstRound} onClick={handleFirst}>첫회보기</button></div>
+                            <div className={novelinfo.btnBox}>
+                                <button className={novelinfo.firstRound} onClick={handleFirst}>첫회보기</button>
+                                {login.writeName === value.write_name ? (
+                                    <div className={novelinfo.writerBox}>
+                                        <A url={"/create/detail?id="+value.id} className={novelinfo.editRound}>수정하기</A>
+                                        <button onClick={handleDelete} className={novelinfo.deleteRound}>삭제</button>
+                                    </div>
+                                ) : (
+                                    <div></div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

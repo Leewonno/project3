@@ -53,11 +53,13 @@ export default function Edit(){
         setContent(e.target.value);
     }
 
-    // const handlePaste = (e)=>{
-    //     console.log("붙여넣기 실행");
-    // }
-
     const handleRoundSave = async ()=>{
+
+        console.log(login.id.length);
+        if(login.id.length===0){
+            alert("로그인 후 이용해주세요!");
+            return;
+        }
 
         if(novelId === 0){
             alert("작품을 선택해주세요!");
@@ -120,9 +122,6 @@ export default function Edit(){
                 <input placeholder="회차 제목" value={title} onChange={(e)=>setTitle(e.target.value)} className={edit.titleInput}></input>
             </div>
             <div className={edit.content}>
-                {/* <div contentEditable suppressContentEditableWarning onInput={(e)=>handleContent(e)} onPaste={(e)=>handlePaste(e)}>
-                    {content}
-                </div> */}
                 <textarea className={edit.contentInput} spellCheck={false} onChange={(e)=>handleContent(e)}></textarea>
             </div>
             <div className={edit.writerComment}>

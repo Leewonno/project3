@@ -60,6 +60,10 @@
     color: #9d9c9c;
 }
 
+.btnBox{
+    display: flex;
+}
+
 .firstRound{
     margin-top: 10px;
     padding: 10px 30px;
@@ -69,6 +73,37 @@
     color: white;
     border: none;
     border-radius: 5px;
+    margin-right: 10px;
+}
+
+.writerBox{
+    display: flex;
+}
+
+.editRound{
+    margin-top: 10px;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: rgb(106, 106, 106);
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    margin-right: 10px;
+}
+
+.deleteRound{
+    margin-top: 10px;
+    padding: 10px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    margin-right: 10px;
 }
 
 .roundInfo{
@@ -95,6 +130,7 @@
 
 .roundImg{
     height: 75px;
+    width: 95px;
     object-fit: cover;
     border-radius: 2.5px;
     margin-right: 15px;

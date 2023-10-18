@@ -166,15 +166,48 @@ exports.getNovel = async (req, res)=>{
 }
 
 exports.getRound = async (req, res)=>{
-    const {id, round} = req.query;
-    const list = await models.Round.findOne({where:{novel_id: id, round}});
-    console.log(list);
-    res.json({result:true, list});
+    try{
+        const {id, round} = req.query;
+        const list = await models.Round.findOne({where:{novel_id: id, round}});
+        const user = await models.Novel.findOne({where:{id:list.novel_id}});
+        list.dataValues.writeName = user.write_name;
+
+        const prev = await models.Round.findOne({
+            where:{
+                novel_id: id,
+                round: { [Op.lt]: round },
+            },
+            order: [["round", "desc"]]
+        });
+
+        const next = await models.Round.findOne({
+            where:{
+                novel_id: id,
+                round: { [Op.gt]: round },
+            },
+            order: [["round", "asc"]]
+        });
+        
+        res.json({result:true, list, prev, next});
+    }catch(err){
+        console.log(err);
+        res.json({result:false});
+    }
+    
 }
 
 exports.getMainRecent = async (req, res)=>{
-    const list = await models.Novel.findOne({where:{round: { [Op.gt]: 0 },}, order: [["createDate", "desc"]]});
-    console.log(list);
+    const list = await models.Novel.findAll({where:{round: { [Op.gt]: 0 },}, order: [["createDate", "desc"]], limit: 2});
+    res.json({result:true, list});
+}
+
+exports.getMainPopular = async (req, res)=>{
+    const list = await models.Novel.findAll({
+        where: { round: { [Op.gt]: 0 } },
+        order: [['like', 'DESC']],
+        limit: 5
+    });
+
     res.json({result:true, list});
 }
 
@@ -191,14 +224,119 @@ exports.getSort = async (req, res)=>{
         where: { round: { [Op.gt]: 0 } },
         order: [['like', 'DESC']],
         limit: 10
-      });
-      const roundList = await models.Round.findAll({
+    });
+    const roundList = await models.Round.findAll({
         order: [['createDate', 'DESC']],
         limit: 10
-      });
+    });
 
-    console.log(novelList);
-    console.log(roundList);
+    const addDataTemp = roundList.map( async (value, index)=>{
+        const tempData = await models.Novel.findOne({where:{id:value.novel_id}});
+        return tempData;
+    })
+    const connectData = await Promise.all(addDataTemp);
+
+    for(let i = 0; i<roundList.length; i++){
+        roundList[i].dataValues.novel_name = connectData[i].name;
+        roundList[i].dataValues.novel_writer = connectData[i].write_name;
+        roundList[i].dataValues.novel_cover = connectData[i].cover_img;
+    }
 
     res.json({result:true, novelList, roundList});
 }
+
+exports.patchNovel = async (req, res)=>{
+    try{
+        const {name, summary, cover_img, id} = req.body;
+        const result = await models.Novel.update({ name, summary, cover_img },{ where: { id } });
+        
+        if(result[0] === 1){
+            res.json({result:true});
+        }
+        
+    }
+    catch(err){
+        console.log(err);
+        res.json({result:false});
+    }    
+}
+
+exports.getNovelEdit = async (req, res)=>{
+    try{
+        const {id} = req.query;
+        const info = await models.Novel.findAll({ where:{id} });
+
+        res.json({result:true, info});
+    }
+    catch(err){
+        res.json({result:false});
+    }
+}
+
+exports.patchRound = async (req, res)=>{
+    try{
+        const {title, content, writer_comment, id, round} = req.body;
+        const result = await models.Round.update({ title, content, writer_comment },{ where: { novel_id:id, round } });
+        
+        if(result[0] === 1){
+            res.json({result:true});
+        }
+        
+    }
+    catch(err){
+        console.log(err);
+        res.json({result:false});
+    }  
+}
+
+exports.getRoundEdit = async (req, res)=>{
+    try{
+        const {novel_id, round} = req.query;
+        const info = await models.Round.findAll({ where:{novel_id, round} });
+        const novel = await models.Novel.findOne({where:{id:novel_id}});
+        info[0].dataValues.novelName = novel.name;
+
+        res.json({result:true, info});
+    }
+    catch(err){
+        res.json({result:false});
+    }
+}
+
+exports.deleteNovel = async (req, res)=>{
+    try{
+        const {id} = req.body;
+        const result = await models.Novel.destroy({where:{id}});
+        const result_round = await models.Round.destroy({where:{novel_id:id}});
+
+        console.log(result, result_round);
+        
+        if(result===1){
+            res.json({result:true});
+        }
+        else{
+            res.json({result:false});
+        }
+    }catch(err){
+        console.log(err);
+    }
+}
+
+exports.deleteRound = async (req, res)=>{
+    try{
+        const {novel_id, round} = req.body;
+        const result = await models.Round.destroy({where:{novel_id, round}});
+        console.log(result);
+        if(result===1){
+            res.json({result:true});
+        }
+        else{
+            res.json({result:false});
+        }
+        
+    }catch(err){
+        console.log(err);
+        res.json({result:false});
+    }
+}
+
