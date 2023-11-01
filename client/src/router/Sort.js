@@ -18,7 +18,6 @@ export default function Sort(){
                 url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/sort/getdata",
             })
 
-            console.log(res);
             setNovelList(res.data.novelList);
             setRoundList(res.data.roundList);
         }

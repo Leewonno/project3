@@ -12,7 +12,7 @@ export default function SingupBtnBox(){
     const value = useContext(SignupContext);
 
     const handleSignup = async ()=>{
-        console.log(value.idInput, value.pwInput, value.nameInput, value.nickInput, value.writeNameInput)
+        // console.log(value.idInput, value.pwInput, value.nameInput, value.nickInput, value.writeNameInput)
         if(value.idCheck && value.pwCheck && value.writeNameCheck){
             const result = await axios({
                 method:"POST",
