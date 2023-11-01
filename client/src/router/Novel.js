@@ -92,6 +92,7 @@ export default function Novel(){
         console.log(res);
         if(res.data.result){
             alert("삭제되었습니다.");
+            console.log(navigate('/'));
             navigate('/n/'+params.id);
         }
     }

@@ -68,7 +68,7 @@ export default function CreateEdit(){
             }
         })
 
-        console.log(update_res);
+        // console.log(update_res);
 
         if(update_res.data.result){
             alert("수정되었습니다.");
@@ -100,7 +100,7 @@ export default function CreateEdit(){
             }
         })
     
-        console.log(cover_res);
+        // console.log(cover_res);
         setFileUrl(cover_res.data.location);
 
     }

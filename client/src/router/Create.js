@@ -78,7 +78,7 @@ export default function Create(){
             }
         })
     
-        console.log(cover_res);
+        // console.log(cover_res);
         setFileUrl(cover_res.data.location);
 
     }

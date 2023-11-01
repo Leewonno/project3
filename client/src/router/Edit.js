@@ -30,7 +30,7 @@ export default function Edit(){
             })
 
             if(list.data.result){
-                console.log(list.data.list);
+                // console.log(list.data.list);
                 setNovelList(list.data.list);
             }
 
@@ -49,13 +49,13 @@ export default function Edit(){
     }
 
     const handleContent = (e)=>{
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setContent(e.target.value);
     }
 
     const handleRoundSave = async ()=>{
 
-        console.log(login.id.length);
+        // console.log(login.id.length);
         if(login.id.length===0){
             alert("로그인 후 이용해주세요!");
             return;

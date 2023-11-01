@@ -16,7 +16,7 @@ export default function LoginBox(){
     const navigate = useNavigate();
 
     const handleLogin = async ()=>{
-        console.log(value);
+        // console.log(value);
         const result = await axios({
             method:"POST",
             url:'https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/login',
@@ -26,7 +26,7 @@ export default function LoginBox(){
             }
         })
 
-        console.log(result.data.result);
+        // console.log(result.data.result);
         if(result.data.result){
             alert("로그인 성공!");
             value.setCookie("user", result.data.token);
