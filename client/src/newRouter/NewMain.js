@@ -12,10 +12,10 @@ import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import A from "../atom/A";
-import axios from "axios";
+import { getNovel, getNovelList } from "./common/getData";
 
 
-export default function Main() {
+export default function NewMain() {
 
   const [slideImg, setSlideImg] = useState([]);
   const [slideCount, setSlideCount] = useState(0);
@@ -23,24 +23,16 @@ export default function Main() {
   const [popularNovel, setPopularNovel] = useState([]);
 
   useEffect(() => {
-    const getRecentData = async () => {
-      const res = await axios({
-        method: "GET",
-        url: "https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/novel/main/recent"
-      });
-
-      setRecentNovel(res.data.list);
+    const getRecentData = () => {
+      // getNovel();
+      // getNovelList();
+      // setRecentNovel(res.data.list);
     }
 
     const getPopularData = async () => {
-      const res = await axios({
-        method: "GET",
-        url: "https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/novel/main/popular"
-      })
-
-      setPopularNovel(res.data.list);
+      // setPopularNovel(res.data.list);
     }
-
+    getNovel();
     getRecentData();
     getPopularData();
     setSlideImg([slide, slide2, slide3, slide2, slide3]);
