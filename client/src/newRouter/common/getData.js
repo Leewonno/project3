@@ -2,7 +2,6 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 export async function getNovel() {
-    console.log(db)
     const docRef = doc(db, "novel", "0dZ9KHRDFIMc7maJksIZ");
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
