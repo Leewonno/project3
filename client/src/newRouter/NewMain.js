@@ -33,6 +33,7 @@ export default function NewMain() {
       // setPopularNovel(res.data.list);
     }
     getNovel();
+    getNovelList();
     getRecentData();
     getPopularData();
     setSlideImg([slide, slide2, slide3, slide2, slide3]);
