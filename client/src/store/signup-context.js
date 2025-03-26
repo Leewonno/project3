@@ -11,6 +11,8 @@ const SignupContext = createContext({
     setIdInput:()=>{},
     pwInput:"",
     setPwInput:()=>{},
+    pwCheckInput:"",
+    setPwCheckInput:()=>{},
     nameInput:"",
     setNameInput:()=>{},
     nickInput:"",
@@ -20,11 +22,12 @@ const SignupContext = createContext({
 });
 
 export function SignupProvider({children}){
-    const [idCheck, setIdCheck] = useState(true);
-    const [pwCheck, setPwCheck] = useState(true);
-    const [writeNameCheck, setWriteNameCheck] = useState(true);
+    const [idCheck, setIdCheck] = useState(false);
+    const [pwCheck, setPwCheck] = useState(false);
+    const [writeNameCheck, setWriteNameCheck] = useState(false);
     const [idInput, setIdInput] = useState("");
     const [pwInput, setPwInput] = useState("");
+    const [pwCheckInput, setPwCheckInput] = useState("");
     const [nameInput, setNameInput] = useState("");
     const [nickInput, setNickInput] = useState("");
     const [writeNameInput, setWriteNameInput] = useState("");
@@ -38,7 +41,8 @@ export function SignupProvider({children}){
             pwInput, setPwInput,
             nameInput, setNameInput,
             nickInput, setNickInput,
-            writeNameInput, setWriteNameInput
+            writeNameInput, setWriteNameInput,
+            pwCheckInput, setPwCheckInput
         }}>
         {children}
     </SignupContext.Provider>

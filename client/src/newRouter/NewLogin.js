@@ -3,7 +3,7 @@ import login from "../css/login.module.css";
 
 import {LoginProvider} from '../store/login-context';
 
-export default function Login(){
+export default function NewLogin(){
     return <>
         <div>
             

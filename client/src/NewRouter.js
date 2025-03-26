@@ -1,8 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import NotFound from './router/404';
-import Login from './router/Login';
-import Signup from './router/Signup';
 import Sort from './router/Sort';
 import Search from './router/Search';
 import Edit from './router/Edit';
@@ -12,6 +10,8 @@ import EditPatch from './router/EditPatch';
 import NewMain from './newRouter/NewMain';
 import NewNovel from './newRouter/NewNovel';
 import NewCreate from './newRouter/NewCreate';
+import NewLogin from './newRouter/NewLogin';
+import NewSignup from './newRouter/NewSignup';
 
 const router = createBrowserRouter([
   {
@@ -24,11 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'login',
-        element: <Login />,
+        element: <NewLogin />,
       },
       {
         path: 'signup',
-        element: <Signup />,
+        element: <NewSignup />,
       },
       {
         path: 'sort',

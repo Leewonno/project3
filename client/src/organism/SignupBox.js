@@ -20,7 +20,7 @@ export default function SingupBox(){
                 <SignupInputNick />
                 <br></br>
                 <SignupInputWritename />
-                <SingupBtnBox></SingupBtnBox>
+                <SingupBtnBox />
             </SignupProvider>
         </div>
     </>

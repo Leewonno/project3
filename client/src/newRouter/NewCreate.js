@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import create from "../css/create.module.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LoginStateContext from '../store/loginState-context';
 import { postNovel } from "./common/postData";
