@@ -62,9 +62,6 @@ export default function NovelInfo(){
                 id:params.id,
             }
         })
-
-        console.log(res);
-
         if(res.data.result){
             alert("삭제되었습니다.");
             navigate('/');
