@@ -1,0 +1,106 @@
+.main{
+    width: 1200px;
+}
+
+.genre{
+    margin-bottom: 50px;
+}
+
+.genreLabel{
+    cursor: pointer;
+    border: 1px solid #e5e5e5;
+    padding: 5px 15px;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+
+.genre input:checked + .genreLabel{
+    background-color: #3f88da;
+    color: white;
+}
+
+.title{
+    margin-bottom: 30px;
+}
+
+.titleInput{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    outline: none;
+    font-size: 18px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.titleInput:focus{
+    border-bottom: 1px solid black;
+}
+
+.summary{
+    margin-bottom: 30px;
+}
+
+.summaryInput{
+    width: 100%;
+    min-height: 300px;
+    outline: none;
+    resize: none;
+    font-size: 17px;
+    font-family: 'SUIT-Regular';
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.summaryInput:focus{
+    border: 1px solid black;
+}
+
+.coverImg{
+    margin-bottom: 50px;
+}
+
+.coverLabel{
+    display: block;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    color: #a7a7a7;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-bottom: 5px;
+}
+
+.coverLabel:hover{
+    border: 1px solid black;
+    color: black;
+}
+
+.coverImgUrl{
+    width: 190px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+
+
+.saveBtnBox{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.saveBtn{
+    border: 1px solid #e5e5e5;
+    background-color: #3f88da;
+    padding: 10px 30px;
+    font-size: 18px;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+}
