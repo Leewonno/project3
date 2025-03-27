@@ -1,13 +1,18 @@
 import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getUser } from "./getData";
+import { getNovel, getUser } from "./getData";
 
-// 소설 만들기
+// 소설 생성
 export async function createNovel(title, data) {
-    const res = await setDoc(doc(db, "novel", title), data);
-    console.log(res)
-    return res;
+    const res = await getNovel(title);
+    if (res.result) {
+        alert("이미 존재하는 작품입니다.")
+        return false;
+    } else {
+        const cres = await setDoc(doc(db, "novel", title), data);
+        return true;
+    }
 }
 
 // 회원가입

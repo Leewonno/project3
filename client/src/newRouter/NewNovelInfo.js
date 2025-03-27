@@ -6,7 +6,7 @@ import novelinfo from "../css/novelInfo.module.css";
 import LoginStateContext from '../store/loginState-context';
 import { useContext } from "react";
 
-export default function NovelInfo(){
+export default function NewNovelInfo(){
 
     const params = useParams();
     const navigate = useNavigate();

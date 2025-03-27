@@ -52,11 +52,11 @@ export default function NewCreate() {
       summary,
       genre,
       cover_img: fileUrl,
+      round: 0,
     }
 
     // 저장 요청
-    const res = createNovel(title, data)
-
+    const res = await createNovel(title, data);
     if (res) {
       alert("등록되었습니다.");
       navigate('/');

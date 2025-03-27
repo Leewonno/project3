@@ -11,9 +11,9 @@ export async function getNovel(id) {
     const docRef = doc(db, "novel", id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        return { result: true, data: docSnap.data() }
     } else {
-        console.log("No such document!");
+        return { result: false };
     }
 }
 
