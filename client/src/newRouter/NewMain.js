@@ -12,7 +12,7 @@ import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import A from "../atom/A";
-import { getNovel, getNovelList } from "./common/getData";
+import { getNovel, getNovelList, getReconetNovelList } from "./common/getData";
 
 
 export default function NewMain() {
@@ -23,17 +23,18 @@ export default function NewMain() {
   const [popularNovel, setPopularNovel] = useState([]);
 
   useEffect(() => {
-    const getRecentData = () => {
+    const getRecentData = async () => {
       // getNovel();
-      // getNovelList();
-      // setRecentNovel(res.data.list);
+      const res = await getReconetNovelList();
+      console.log(res)
+      setRecentNovel(res);
     }
 
     const getPopularData = async () => {
       // setPopularNovel(res.data.list);
     }
-    getNovel();
-    getNovelList();
+    // getNovel();
+    // getNovelList();
     getRecentData();
     getPopularData();
     setSlideImg([slide, slide2, slide3, slide2, slide3]);
@@ -72,9 +73,9 @@ export default function NewMain() {
             <div className={main.recentItem}>
               {recentNovel.map((value, index) => {
                 return (
-                  <A url={"/n/" + value.id} key={index} className={main.recentBox}>
+                  <A url={"/n/" + value.title} key={index} className={main.recentBox}>
                     <img className={main.recentImg} src={value.cover_img} alt="최신작품"></img>
-                    <div className={main.recentName}>{value.name}</div>
+                    <div className={main.recentName}>{value.title}</div>
                   </A>
                 )
               })}

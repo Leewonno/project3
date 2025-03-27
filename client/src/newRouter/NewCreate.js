@@ -53,6 +53,7 @@ export default function NewCreate() {
       genre,
       cover_img: fileUrl,
       round: 0,
+      create_at: new Date()
     }
 
     // 저장 요청

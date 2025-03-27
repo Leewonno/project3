@@ -54,8 +54,6 @@ export default function NewNovel() {
                     id: params.id,
                 }
             })
-
-            console.log(res);
         }
 
         updateView();

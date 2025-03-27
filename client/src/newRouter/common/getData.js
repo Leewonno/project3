@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "../../firebase";
 
 export async function getNovel(id) {
@@ -18,10 +18,23 @@ export async function getNovel(id) {
 }
 
 export async function getNovelList() {
+    let result = [];
     const querySnapshot = await getDocs(collection(db, "novel"));
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
+        result.push(doc.data());
     });
+    return result;
+}
+
+export async function getReconetNovelList() {
+    let result = [];
+    const docRef = collection(db, "novel");
+    const q = query(docRef, orderBy("create_at", "desc"), limit(2));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        result.push(doc.data());
+    });
+    return result;
 }
 
 export async function getUser(email) {
