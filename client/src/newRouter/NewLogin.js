@@ -9,7 +9,7 @@ export default function NewLogin(){
             
             <div className={login.title}>LOGIN</div>
             <LoginProvider>
-                <LoginBox></LoginBox>
+                <LoginBox />
             </LoginProvider>
         </div>
     </>

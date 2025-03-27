@@ -24,7 +24,7 @@ export default function SingupBtnBox() {
 
     useEffect(() => {
         const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/;
-        if (pwInput != pwCheckInput || !passwordRegex.test(pwInput)) {
+        if (pwInput !== pwCheckInput || !passwordRegex.test(pwInput)) {
             setPwCheck(false);
         } else {
             setPwCheck(true);
@@ -63,10 +63,8 @@ export default function SingupBtnBox() {
             }
             const res = await postSignUp(data);
             if (res) {
-                alert("회원가입이 완료되었습니다!");
+                alert("환영합니다!");
                 navigate("/login");
-            } else {
-                alert("오류가 발생했습니다.")
             }
         }
     }

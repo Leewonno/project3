@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import create from "../css/create.module.css";
 import { useNavigate } from "react-router-dom";
 import LoginStateContext from '../store/loginState-context';
-import { postNovel } from "./common/postData";
+import { createNovel } from "./common/postData";
 import { uploadCover } from "./common/upload";
 
 export default function NewCreate() {
@@ -49,9 +49,9 @@ export default function NewCreate() {
         }
 
         // 저장 요청
-        const create_res = postNovel(title, data)
+        const res = createNovel(title, data)
 
-        if (create_res.data.result) {
+        if (res.data.result) {
             alert("등록되었습니다.");
             navigate('/');
         }

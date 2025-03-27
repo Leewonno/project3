@@ -23,3 +23,13 @@ export async function getNovelList() {
         console.log(`${doc.id} => ${doc.data()}`);
     });
 }
+
+export async function getUser(email) {
+    const docRef = doc(db, "user", email);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        return docSnap.data();
+    } else {
+        return false;
+    }
+}
