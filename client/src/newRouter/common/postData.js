@@ -6,6 +6,7 @@ import { getUser } from "./getData";
 // 소설 만들기
 export async function createNovel(title, data) {
     const res = await setDoc(doc(db, "novel", title), data);
+    console.log(res)
     return res;
 }
 
