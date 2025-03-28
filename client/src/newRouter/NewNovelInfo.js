@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import A from '../atom/A';
 import novelinfo from "../css/novelInfo.module.css";
 import LoginStateContext from '../store/loginState-context';
@@ -24,7 +23,6 @@ export default function NewNovelInfo() {
       const res = await getNovel(params.id)
 
       if (res.result) {
-        // console.log(res);
         setInfo([res.data]);
         // setList(res.data.list);
         setFirstRound(1);
@@ -44,29 +42,6 @@ export default function NewNovelInfo() {
   const handleFirst = () => {
     navigate('/n/' + params.id + "/detail?round=" + firstRound);
   }
-
-  //  삭제 기능은 firebase 이용할 때는 제외함
-  // const handleDelete = async () => {
-
-  //   if (window.confirm("정말 삭제하시겠습니까?")) {
-
-  //   }
-  //   else {
-  //     return;
-  //   }
-
-  //   const res = await axios({
-  //     method: "DELETE",
-  //     url: "https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/novel/delete",
-  //     data: {
-  //       id: params.id,
-  //     }
-  //   })
-  //   if (res.data.result) {
-  //     alert("삭제되었습니다.");
-  //     navigate('/');
-  //   }
-  // }
 
   return <>
     <div className={novelinfo.novelinfo}>
@@ -94,7 +69,7 @@ export default function NewNovelInfo() {
                   <button className={novelinfo.firstRound} onClick={handleFirst}>첫회보기</button>
                   {login.writeName === value.write_name ? (
                     <div className={novelinfo.writerBox}>
-                      <A url={"/create/detail?id=" + value.id} className={novelinfo.editRound}>수정하기</A>
+                      <A url={"/create/detail?id=" + value.title} className={novelinfo.editRound}>수정하기</A>
                       {/* <button onClick={handleDelete} className={novelinfo.deleteRound}>삭제</button> */}
                     </div>
                   ) : (

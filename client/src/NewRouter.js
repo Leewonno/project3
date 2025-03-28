@@ -4,7 +4,6 @@ import NotFound from './router/404';
 import Sort from './router/Sort';
 import Search from './router/Search';
 import Edit from './router/Edit';
-import CreateEdit from './router/CreateEdit';
 import EditPatch from './router/EditPatch';
 import NewMain from './newRouter/NewMain';
 import NewNovel from './newRouter/NewNovel';
@@ -12,6 +11,7 @@ import NewCreate from './newRouter/NewCreate';
 import NewLogin from './newRouter/NewLogin';
 import NewSignup from './newRouter/NewSignup';
 import NewNovelInfo from './newRouter/NewNovelInfo';
+import NewCreateEdit from './newRouter/NewCreateEdit';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'create/detail',
-        element: <CreateEdit />,
+        element: <NewCreateEdit />,
       },
       {
         path: 'edit',

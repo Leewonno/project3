@@ -12,7 +12,7 @@ import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import A from "../atom/A";
-import { getNovel, getNovelList, getReconetNovelList } from "./common/getData";
+import { getReconetNovelList } from "./common/getData";
 
 
 export default function NewMain() {
