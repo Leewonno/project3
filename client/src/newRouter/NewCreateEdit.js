@@ -85,8 +85,8 @@ export default function NewCreateEdit() {
     const fileExt = file.name.split('.').pop();
 
     // 확장자 제한
-    if (!['jpeg', 'png', 'jpg', 'JPG', 'PNG', 'JPEG'].includes(fileExt)) {
-      alert('jpg, png, jpge 파일만 업로드가 가능합니다.');
+    if (!['jpeg', 'png', 'jpg', 'JPG', 'PNG', 'JPEG', 'webp', 'WEBP'].includes(fileExt)) {
+      alert('jpg, png, jpge, webp 파일만 업로드가 가능합니다.');
       return;
     }
     const name = e.target.files[0].name;

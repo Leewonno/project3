@@ -89,6 +89,17 @@ export async function getReconetNovelList() {
     return result;
 }
 
+export async function getPopularNovelList() {
+    let result = [];
+    const docRef = collection(db, "novel");
+    const q = query(docRef, orderBy("view", "desc"), limit(5));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        result.push(doc.data());
+    });
+    return result;
+}
+
 export async function getUser(email) {
     const docRef = doc(db, "user", email);
     const docSnap = await getDoc(docRef);

@@ -12,7 +12,7 @@ import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import A from "../atom/A";
-import { getReconetNovelList } from "./common/getData";
+import { getPopularNovelList, getReconetNovelList } from "./common/getData";
 
 
 export default function NewMain() {
@@ -24,17 +24,14 @@ export default function NewMain() {
 
   useEffect(() => {
     const getRecentData = async () => {
-      // getNovel();
       const res = await getReconetNovelList();
-      console.log(res)
       setRecentNovel(res);
     }
 
     const getPopularData = async () => {
-      // setPopularNovel(res.data.list);
+      const res = await getPopularNovelList();
+      setPopularNovel(res);
     }
-    // getNovel();
-    // getNovelList();
     getRecentData();
     getPopularData();
     setSlideImg([slide, slide2, slide3, slide2, slide3]);
@@ -88,13 +85,13 @@ export default function NewMain() {
             <div className={main.popularBox}>
               {popularNovel.map((value, index) => {
                 return (
-                  <A url={"/n/" + value.id} key={index}>
+                  <A url={"/n/" + value.title} key={index}>
                     <div className={main.popularItem}>
                       <div className={main.popularCoverImgBox}>
                         <img className={main.popularCoverImg} src={value.cover_img} alt="커버이미지"></img>
                       </div>
                       <div className={main.popularName}>
-                        {value.name}
+                        {value.title}
                       </div>
                     </div>
                   </A>
