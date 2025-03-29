@@ -10,16 +10,12 @@ export async function updateNovel(id, data, origin) {
     if (summary !== origin.summary) {
         update.summary = summary;
     }
-    // if (genre !== origin.genre) {
-    //     update.genre = genre;
-    // }
     if (write_name !== origin.write_name) {
         update.write_name = write_name;
     }
     if (cover_img !== origin.cover_img) {
         update.cover_img = cover_img;
     }
-    console.log(update)
     await updateDoc(novelRef, update);
     return true;
 }

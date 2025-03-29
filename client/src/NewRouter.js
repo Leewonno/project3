@@ -3,7 +3,6 @@ import App from './App';
 import NotFound from './router/404';
 import Sort from './router/Sort';
 import Search from './router/Search';
-import Edit from './router/Edit';
 import EditPatch from './router/EditPatch';
 import NewMain from './newRouter/NewMain';
 import NewNovel from './newRouter/NewNovel';
@@ -12,6 +11,7 @@ import NewLogin from './newRouter/NewLogin';
 import NewSignup from './newRouter/NewSignup';
 import NewNovelInfo from './newRouter/NewNovelInfo';
 import NewCreateEdit from './newRouter/NewCreateEdit';
+import NewEdit from './newRouter/NewEdit';
 
 const router = createBrowserRouter([
   {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'edit',
-        element: <Edit />,
+        element: <NewEdit />,
       },
       {
         path: 'edit/detail',

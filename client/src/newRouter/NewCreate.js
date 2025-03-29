@@ -8,7 +8,7 @@ import { uploadCover } from "./common/upload";
 export default function NewCreate() {
 
   const login = useContext(LoginStateContext);
-  const { writeName } = login;
+  const { writeName, id } = login;
   const navigate = useNavigate();
 
   const [fileName, setFileName] = useState('');
@@ -47,6 +47,7 @@ export default function NewCreate() {
 
     // 저장할 데이터
     const data = {
+      id: id,
       write_name: writeName,
       title,
       summary,
