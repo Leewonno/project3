@@ -1,4 +1,4 @@
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, increment, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 // 소설 정보 업데이트
@@ -17,5 +17,14 @@ export async function updateNovel(id, data, origin) {
         update.cover_img = cover_img;
     }
     await updateDoc(novelRef, update);
+    return true;
+}
+
+// 소설 회차 업데이트
+export async function updateNovelRount(id) {
+    const novelRef = doc(db, "novel", id);
+    await updateDoc(novelRef, {
+        round: increment(1)
+    });
     return true;
 }

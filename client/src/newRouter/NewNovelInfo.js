@@ -4,7 +4,7 @@ import A from '../atom/A';
 import novelinfo from "../css/novelInfo.module.css";
 import LoginStateContext from '../store/loginState-context';
 import { useContext } from "react";
-import { getNovel } from './common/getData';
+import { getNovel, getNovelList, getStoryList } from './common/getData';
 
 export default function NewNovelInfo() {
 
@@ -24,13 +24,10 @@ export default function NewNovelInfo() {
 
       if (res.result) {
         setInfo([res.data]);
-        // setList(res.data.list);
         setFirstRound(1);
         setCoverImg(res.data.cover_img);
-        // setInfo(res.data.info);
-        // setList(res.data.list);
-        // setFirstRound(res.data.list[0].round);
-        // setCoverImg(res.data.info[0].cover_img);
+        const story = await getStoryList(params.id);
+        setList(story);
       }
 
     }

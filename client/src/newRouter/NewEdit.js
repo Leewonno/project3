@@ -4,6 +4,7 @@ import A from "../atom/A"
 import LoginStateContext from '../store/loginState-context';
 import edit from '../css/edit.module.css';
 import { getNovelList } from "./common/getData";
+import { createStory } from "./common/postData";
 
 export default function NewEdit() {
 
@@ -12,7 +13,7 @@ export default function NewEdit() {
   const navigate = useNavigate();
 
   const [novelList, setNovelList] = useState([]);
-  const [novelId, setNovelId] = useState(0);
+  const [novelId, setNovelId] = useState('');
   const [novelName, setNovelName] = useState("작품을 선택해주세요.");
   const [novelRound, setNovelRound] = useState(0);
   const [title, setTitle] = useState("");
@@ -31,16 +32,15 @@ export default function NewEdit() {
 
   const handleSelect = (e) => {
     novelList.forEach(element => {
-      if (element.id === Number(e.target.value)) {
-        setNovelId(element.id);
-        setNovelName(element.name);
+      if (element.title === e.target.value) {
+        setNovelId(element.title);
+        setNovelName(element.title);
         setNovelRound(element.round + 1);
       }
     });
   }
 
   const handleContent = (e) => {
-    // console.log(e.target.value);
     setContent(e.target.value);
   }
 
@@ -50,7 +50,7 @@ export default function NewEdit() {
       return;
     }
 
-    if (novelId === 0) {
+    if (novelId === '') {
       alert("작품을 선택해주세요!");
       return;
     }
@@ -69,23 +69,18 @@ export default function NewEdit() {
       alert("작가의 말을 입력해주세요!");
       return;
     }
-
-    //  round_res = await axios({
-    //   method: "POST",
-    //   url: "https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/novel/round",
-    //   data: {
-    //     novel_id: novelId,
-    //     round: novelRound,
-    //     content: content,
-    //     title: title,
-    //     writer_cconstomment: writerComment,
-    //   }
-    // })
-
-    // if (round_res.data.result) {
-    //   alert("회차가 업데이트 되었습니다!");
-    //   navigate("/");
-    // }
+    const data = {
+      novel_id: novelId,
+      round: novelRound,
+      content: content,
+      title: title,
+      writer_comment: writerComment,
+    }
+    const res = await createStory(novelId, data);
+    if (res) {
+      alert("회차가 업데이트 되었습니다!");
+      navigate("/");
+    }
   }
 
 

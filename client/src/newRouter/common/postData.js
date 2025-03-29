@@ -1,7 +1,8 @@
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getNovel, getUser } from "./getData";
+import { updateNovelRount } from "./updateData";
 
 // 소설 생성
 export async function createNovel(title, data) {
@@ -12,6 +13,26 @@ export async function createNovel(title, data) {
     } else {
         const cres = await setDoc(doc(db, "novel", title), data);
         return true;
+    }
+}
+
+// 회차 생성
+export async function createStory(title, data) {
+    const res = await getNovel(title);
+    console.log(String(data.round))
+    if (res.result) {
+        try {
+            const storyCollectionRef = doc(db, "novel", title, "story", String(data.round)); // 해당 novel 문서 참조
+            await setDoc(storyCollectionRef, data); // story 컬렉션에 문서 추가
+            await updateNovelRount(title);
+            return true;
+        } catch (error) {
+            console.error("회차 생성 실패:", error);
+            return false;
+        }
+    } else {
+        alert("존재하지 않는 작품입니다.");
+        return false;
     }
 }
 

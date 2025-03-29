@@ -18,7 +18,7 @@ export async function getNovel(id) {
     }
 }
 
-// 특정 유저가 작품 목록 가져오기
+// 특정 유저가 생성한 작품 목록 가져오기
 // id : userid
 export async function getNovelList(id) {
     let result = [];
@@ -35,6 +35,19 @@ export async function getNovelList(id) {
         result.push(doc.data());
     });
     return result;
+}
+
+// 특정 작품의 회차 목록 가져오기
+export async function getStoryList(id) {
+    try {
+        const storyCollectionRef = collection(db, "novel", id, "story"); // "story" 컬렉션 참조
+        const querySnapshot = await getDocs(storyCollectionRef); // 모든 문서 가져오기
+        const storyList = querySnapshot.docs.map(doc => (doc.data()));
+        return storyList; // 가져온 회차 목록 반환
+    } catch (error) {
+        console.error("회차 목록 가져오기 실패:", error);
+        return [];
+    }
 }
 
 // export async function getNovelList() {
