@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import A from "../atom/A"
 import LoginStateContext from '../store/loginState-context';
 import edit from '../css/edit.module.css';
+import { getNovelList } from "./common/getData";
 
 export default function NewEdit() {
 
   const login = useContext(LoginStateContext);
+  const { id } = login;
   const navigate = useNavigate();
 
   const [novelList, setNovelList] = useState([]);
@@ -19,19 +21,10 @@ export default function NewEdit() {
 
   useEffect(() => {
     const loadList = async () => {
-      // const list = await axios({
-      //   method: "GET",
-      //   url: "https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/novel/list",
-      //   params: {
-      //     write_name: login.writeName,
-      //   }
-      // })
-
-      // if (list.data.result) {
-      //   // console.log(list.data.list);
-      //   setNovelList(list.data.list);
-      // }
-
+      const res = await getNovelList(id);
+      if (res) {
+        setNovelList(res);
+      }
     }
     loadList();
   }, [login])
@@ -52,8 +45,6 @@ export default function NewEdit() {
   }
 
   const handleRoundSave = async () => {
-
-    // console.log(login.id.length);
     if (login.id.length === 0) {
       alert("로그인 후 이용해주세요!");
       return;
@@ -105,7 +96,7 @@ export default function NewEdit() {
           <select onChange={(e) => handleSelect(e)} className={edit.novelSelect}>
             <option value={0}>선택</option>
             {novelList.map((value, index) => {
-              return <option key={index} value={value.id}>{value.name}</option>
+              return <option key={index} value={value.title}>{value.title}</option>
             })}
           </select>
         </div>

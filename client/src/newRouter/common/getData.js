@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, limit, orderBy, query } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, limit, orderBy, query, where } from "firebase/firestore";
 import { db } from "../../firebase";
 
 // 특정 작품 정보 가져오기
@@ -19,8 +19,22 @@ export async function getNovel(id) {
 }
 
 // 특정 유저가 작품 목록 가져오기
-export async function getNovelList(params) {
-    
+// id : userid
+export async function getNovelList(id) {
+    let result = [];
+    if (id === undefined || id === null) {
+        return result;
+    }
+    if (id.length === 0) {
+        return result;
+    }
+    const docRef = collection(db, "novel");
+    const q = query(docRef, where("id", "==", id));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        result.push(doc.data());
+    });
+    return result;
 }
 
 // export async function getNovelList() {
