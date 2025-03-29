@@ -100,6 +100,23 @@ export async function getPopularNovelList() {
     return result;
 }
 
+export async function getSortData() {
+    let popularResult = [];
+    let recentResult = [];
+    const docRef = collection(db, "novel");
+    const popular = query(docRef, orderBy("view", "desc"), limit(10));
+    const popularSnapshot = await getDocs(popular);
+    popularSnapshot.forEach((doc) => {
+        popularResult.push(doc.data());
+    });
+    const recent = query(docRef, orderBy("create_at", "desc"), limit(10));
+    const recentSnapshot = await getDocs(recent);
+    recentSnapshot.forEach((doc) => {
+        recentResult.push(doc.data());
+    });
+    return { popular: popularResult, recent: recentResult };
+}
+
 export async function getUser(email) {
     const docRef = doc(db, "user", email);
     const docSnap = await getDoc(docRef);

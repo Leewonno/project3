@@ -1,8 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import NotFound from './router/404';
-import Sort from './router/Sort';
-import Search from './router/Search';
 import EditPatch from './router/EditPatch';
 import NewMain from './newRouter/NewMain';
 import NewNovel from './newRouter/NewNovel';
@@ -12,6 +10,8 @@ import NewSignup from './newRouter/NewSignup';
 import NewNovelInfo from './newRouter/NewNovelInfo';
 import NewCreateEdit from './newRouter/NewCreateEdit';
 import NewEdit from './newRouter/NewEdit';
+import NewSort from './newRouter/NewSort';
+import NewSearch from './newRouter/NewSearch';
 
 const router = createBrowserRouter([
   {
@@ -32,11 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'sort',
-        element: <Sort />,
+        element: <NewSort />,
       },
       {
         path: 'search',
-        element: <Search />,
+        element: <NewSearch />,
       },
       {
         path: 'create',
@@ -60,12 +60,6 @@ const router = createBrowserRouter([
           {
             path:':id',
             element: <NewNovelInfo />,
-            // children: [
-            //   {
-            //     path: ':round',
-            //     element: <NewNovel />,
-            //   },
-            // ]
           },
           {
             path:':id',
@@ -77,7 +71,6 @@ const router = createBrowserRouter([
             ]
           }
         ]
-        
       },
     ],
     errorElement: <NotFound />,
