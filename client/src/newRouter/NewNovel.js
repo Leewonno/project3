@@ -1,4 +1,4 @@
-import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from "react"
 import novel from "../css/novel.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,19 +6,14 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faCircleChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faCircleChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import LoginStateContext from '../store/loginState-context';
-import { useContext } from "react";
 import A from '../atom/A';
 import { getStory } from './common/getData';
+import { updateNovelView } from './common/updateData';
 
 export default function NewNovel() {
   const params = useParams();
   const [searchParams] = useSearchParams();
   const round = searchParams.get("round");
-
-  const login = useContext(LoginStateContext);
-  const { writeName } = login
-  const navigate = useNavigate();
 
   const [data, setData] = useState({});
   const [content, setContent] = useState([]);
@@ -40,18 +35,15 @@ export default function NewNovel() {
         } else {
           setNext(null);
         }
-
         if (String(res.data.round) === '1') {
           setPrev(null);
         } else {
           setPrev(res.data.round - 1);
         }
-
-
       }
     }
     const updateView = async () => {
-
+      await updateNovelView(params.id);
     }
 
     updateView();

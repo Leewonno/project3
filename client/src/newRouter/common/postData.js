@@ -2,7 +2,7 @@ import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getNovel, getUser } from "./getData";
-import { updateNovelRount } from "./updateData";
+import { updateNovelRound } from "./updateData";
 
 // 소설 생성
 export async function createNovel(title, data) {
@@ -24,7 +24,7 @@ export async function createStory(title, data) {
         try {
             const storyCollectionRef = doc(db, "novel", title, "story", String(data.round)); // 해당 novel 문서 참조
             await setDoc(storyCollectionRef, data); // story 컬렉션에 문서 추가
-            await updateNovelRount(title);
+            await updateNovelRound(title);
             return true;
         } catch (error) {
             console.error("회차 생성 실패:", error);

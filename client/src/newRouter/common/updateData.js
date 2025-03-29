@@ -21,10 +21,19 @@ export async function updateNovel(id, data, origin) {
 }
 
 // 소설 회차 업데이트
-export async function updateNovelRount(id) {
+export async function updateNovelRound(id) {
     const novelRef = doc(db, "novel", id);
     await updateDoc(novelRef, {
         round: increment(1)
+    });
+    return true;
+}
+
+// 소설 조회수 업데이트
+export async function updateNovelView(id) {
+    const novelRef = doc(db, "novel", id);
+    await updateDoc(novelRef, {
+        view: increment(1)
     });
     return true;
 }
