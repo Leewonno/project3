@@ -4,7 +4,7 @@ import A from '../atom/A';
 import novelinfo from "../css/novelInfo.module.css";
 import LoginStateContext from '../store/loginState-context';
 import { useContext } from "react";
-import { getNovel, getNovelList, getStoryList } from './common/getData';
+import { getNovel, getStoryList } from './common/getData';
 
 export default function NewNovelInfo() {
 
@@ -21,7 +21,6 @@ export default function NewNovelInfo() {
   useEffect(() => {
     const getData = async () => {
       const res = await getNovel(params.id)
-
       if (res.result) {
         setInfo([res.data]);
         setFirstRound(1);
@@ -29,11 +28,8 @@ export default function NewNovelInfo() {
         const story = await getStoryList(params.id);
         setList(story);
       }
-
     }
-
     getData();
-
   }, [params])
 
   const handleFirst = () => {

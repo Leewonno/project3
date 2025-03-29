@@ -50,6 +50,25 @@ export async function getStoryList(id) {
     }
 }
 
+// 특정 회차 데이터 가져오기
+export async function getStory(id, round) {
+    try {
+        const novelRef = doc(db, "novel", id);
+        const novelSnap = await getDoc(novelRef); // 해당 문서 가져오기
+        const storyDocRef = doc(db, "novel", id, "story", String(round));
+        const storySnap = await getDoc(storyDocRef); // 해당 문서 가져오기
+        if (storySnap.exists()) {
+            return { data: storySnap.data(), novel: novelSnap.data() }; // 문서 ID와 데이터 반환
+        } else {
+            console.warn("존재하지 않는 회차입니다.");
+            return null;
+        }
+    } catch (error) {
+        console.error("회차 가져오기 실패:", error);
+        return null;
+    }
+}
+
 // export async function getNovelList() {
 //     let result = [];
 //     const querySnapshot = await getDocs(collection(db, "novel"));

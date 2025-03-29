@@ -60,12 +60,12 @@ const router = createBrowserRouter([
           {
             path:':id',
             element: <NewNovelInfo />,
-            children: [
-              {
-                path: ':round',
-                element: <NewNovel />,
-              },
-            ]
+            // children: [
+            //   {
+            //     path: ':round',
+            //     element: <NewNovel />,
+            //   },
+            // ]
           },
           {
             path:':id',
