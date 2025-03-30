@@ -75,7 +75,7 @@ export default function NewMain() {
               {recentNovel.map((value, index) => {
                 return (
                   <A url={"/n/" + value.title} key={index} className={main.recentBox}>
-                    <img className={main.recentImg} src={value.cover_img} alt="최신작품"></img>
+                    <img className={main.recentImg} src={value.cover_img} alt="최신작품" />
                     <div className={main.recentName}>{value.title}</div>
                   </A>
                 )
