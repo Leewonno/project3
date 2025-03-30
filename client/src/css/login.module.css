@@ -1,4 +1,4 @@
-.title{
+.title {
     font-size: 25px;
     font-weight: 600;
     display: flex;
@@ -10,7 +10,7 @@
 
 } */
 
-.box{
+.box {
     width: 450px;
     min-height: 300px;
     border: 1px solid #e5e5e5;
@@ -21,17 +21,17 @@
     padding-top: 30px;
     padding-bottom: 30px;
     border-radius: 5px;
-    box-shadow: 0 5px 8px 0 rgba(68,68,68,.02);
+    box-shadow: 0 5px 8px 0 rgba(68, 68, 68, .02);
 }
 
-.input_box{
+.input_box {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 35px;
 }
 
-.input{
+.input {
     outline: none;
     width: 300px;
     height: 40px;
@@ -40,11 +40,11 @@
     border: 1px solid #e5e5e5;
 }
 
-.button_box{
+.button_box {
     margin-bottom: 10px;
 }
 
-.login_btn{
+.login_btn {
     width: 320px;
     height: 35px;
     cursor: pointer;
@@ -53,13 +53,29 @@
     border: none;
 }
 
-.signup_box{
+.signup_box {
     margin-bottom: 20px;
 }
 
-.signup_box a{
+.signup_box a {
     color: rgb(96, 96, 96);
     margin-left: 10px;
     margin-right: 10px;
     font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 25px;
+    }
+
+    .box {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .input_box {
+        width: 100%;
+    }
 }

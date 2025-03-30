@@ -1,12 +1,12 @@
-.main{
+.main {
     width: 1200px;
 }
 
-.genre{
+.genre {
     margin-bottom: 50px;
 }
 
-.genreLabel{
+.genreLabel {
     cursor: pointer;
     border: 1px solid #e5e5e5;
     padding: 5px 15px;
@@ -14,16 +14,16 @@
     margin-right: 5px;
 }
 
-.genre input:checked + .genreLabel{
+.genre input:checked+.genreLabel {
     background-color: #3f88da;
     color: white;
 }
 
-.title{
+.title {
     margin-bottom: 30px;
 }
 
-.titleInput{
+.titleInput {
     width: 100%;
     border: none;
     border-bottom: 1px solid #e5e5e5;
@@ -33,15 +33,15 @@
     box-sizing: border-box;
 }
 
-.titleInput:focus{
+.titleInput:focus {
     border-bottom: 1px solid black;
 }
 
-.summary{
+.summary {
     margin-bottom: 30px;
 }
 
-.summaryInput{
+.summaryInput {
     width: 100%;
     min-height: 300px;
     outline: none;
@@ -53,15 +53,15 @@
     box-sizing: border-box;
 }
 
-.summaryInput:focus{
+.summaryInput:focus {
     border: 1px solid black;
 }
 
-.coverImg{
+.coverImg {
     margin-bottom: 50px;
 }
 
-.coverLabel{
+.coverLabel {
     display: block;
     width: 100%;
     padding-top: 20px;
@@ -76,12 +76,12 @@
     margin-bottom: 5px;
 }
 
-.coverLabel:hover{
+.coverLabel:hover {
     border: 1px solid black;
     color: black;
 }
 
-.coverImgUrl{
+.coverImgUrl {
     width: 190px;
     height: 150px;
     object-fit: cover;
@@ -90,12 +90,12 @@
 }
 
 
-.saveBtnBox{
+.saveBtnBox {
     display: flex;
     justify-content: flex-end;
 }
 
-.saveBtn{
+.saveBtn {
     border: 1px solid #e5e5e5;
     background-color: #3f88da;
     padding: 10px 30px;
@@ -103,4 +103,35 @@
     color: white;
     border-radius: 25px;
     cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+    .main {
+        width: 100%;
+        padding: 0px 20px;
+        box-sizing: border-box;
+    }
+
+    .genre {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 25px;
+    }
+
+    .genreLabel {
+        background-color: #fff;
+        white-space: nowrap;
+        margin-right: 0;
+    }
+
+    .title {
+        margin-bottom: 30px;
+    }
+
+    .coverLabel {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 }
