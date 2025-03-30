@@ -1,11 +1,11 @@
-.main{
+.main {
     width: 1200px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.first{
+.first {
     width: 100%;
     height: 300px;
     display: flex;
@@ -13,14 +13,14 @@
     margin-bottom: 20px;
 }
 
-.slide{
+.slide {
     width: 800px;
     height: 300px;
     overflow: hidden;
     position: relative;
 }
 
-.slideBox{
+.slideBox {
     width: 100%;
     height: 100%;
     display: inline-flex;
@@ -29,12 +29,12 @@
     flex-direction: column;
 }
 
-.slideBoxImg{
+.slideBoxImg {
     width: 100%;
     object-fit: cover;
 }
 
-.slideBtnBox{
+.slideBtnBox {
     width: 100%;
     height: 100%;
     display: flex;
@@ -44,17 +44,17 @@
     top: 0;
 }
 
-.slideLeftBtn{
+.slideLeftBtn {
     margin-left: 15px;
     cursor: pointer;
 }
 
-.slideRightBtn{
+.slideRightBtn {
     margin-right: 15px;
     cursor: pointer;
 }
 
-.recent{
+.recent {
     width: 380px;
     height: 300px;
     border: 1px solid #e5e5e5;
@@ -65,39 +65,39 @@
     flex-direction: column;
 }
 
-.recentTitle{
+.recentTitle {
     font-size: 20px;
     font-weight: 600;
     color: black;
     padding: 5px;
 }
 
-.recentBox{
+.recentBox {
     display: flex;
     padding: 5px;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
 }
 
-.recentBox:hover{
+.recentBox:hover {
     border: 1px solid black;
 }
 
-.recentItem{
+.recentItem {
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: space-around;
 }
 
-.recentImg{
+.recentImg {
     width: 140px;
     height: 110px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.recentName{
+.recentName {
     font-size: 18px;
     color: black;
     margin-left: 10px;
@@ -107,32 +107,32 @@
     white-space: nowrap;
 }
 
-.second{
+.second {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.popular{
+.popular {
     border: 1px solid #e5e5e5;
     width: 800px;
     height: 250px;
     position: relative;
 }
 
-.popularTitle{
+.popularTitle {
     padding: 10px;
     font-size: 20px;
     font-weight: 600;
 }
 
-.popularBox{
+.popularBox {
     display: flex;
     justify-content: space-evenly;
     margin-top: 5px;
 }
 
-.popularItem{
+.popularItem {
     width: 150px;
     height: auto;
     border: 1px solid #e5e5e5;
@@ -141,24 +141,24 @@
     box-sizing: border-box;
 }
 
-.popularItem:hover{
+.popularItem:hover {
     border: 1px solid black;
 }
 
-.popularCoverImgBox{
+.popularCoverImgBox {
     width: 100%;
     height: 120px;
     margin-bottom: 10px;
 }
 
-.popularCoverImg{
+.popularCoverImg {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 2.5px;
 }
 
-.popularName{
+.popularName {
     color: black;
     font-size: 15px;
     margin-bottom: 5px;
@@ -168,13 +168,13 @@
     white-space: nowrap;
 }
 
-.popularMore{
+.popularMore {
     position: absolute;
     top: 15px;
-    right: 10px;  
+    right: 10px;
 }
 
-.popularMoreBtn{
+.popularMoreBtn {
     color: black;
     padding: 3px 10px;
     border: 1px solid #e5e5e5;
@@ -182,7 +182,7 @@
     background-color: #ffffff;
 }
 
-.boxCS{
+.boxCS {
     width: 380px;
     height: 250px;
     display: flex;
@@ -190,7 +190,7 @@
     justify-content: space-between;
 }
 
-.create{
+.create {
     width: 100%;
     height: 75px;
     display: flex;
@@ -201,15 +201,15 @@
     font-size: 20px;
 }
 
-.create:hover{
+.create:hover {
     border: 1px solid black;
 }
 
-.createText{
+.createText {
     margin-left: 5px;
 }
 
-.submit{
+.submit {
     height: 75px;
     cursor: pointer;
     border: 1px solid #e5e5e5;
@@ -221,11 +221,11 @@
     flex-direction: column;
 }
 
-.submit:hover{
+.submit:hover {
     border: 1px solid black;
 }
 
-.declaration{
+.declaration {
     height: 75px;
     cursor: pointer;
     border: 1px solid #e5e5e5;
@@ -237,6 +237,109 @@
     flex-direction: column;
 }
 
-.declaration:hover{
+.declaration:hover {
     border: 1px solid black;
+}
+
+@media (max-width: 600px) {
+    .main {
+        width: 100%;
+        padding: 0px 20px;
+        box-sizing: border-box;
+    }
+
+    .first {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+
+    }
+
+    .slide {
+        width: 100%;
+        height: 40vw;
+    }
+
+    .slideBtnBox {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .recent {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .recentItem {
+        gap: 5px;
+    }
+
+    .recentName {
+        max-width: 120px;
+    }
+
+    .second {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .popular {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .popularBox {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .popularItem {
+        width: 100%;
+        display: flex;
+    }
+
+    .popularCoverImgBox {
+        margin-bottom: 0;
+        width: 140px;
+        height: 110px;
+    }
+
+    .popularTitle {
+        padding: 5px;
+    }
+
+    .popularName {
+        max-width: 120px;
+        font-size: 18px;
+        color: black;
+        margin-left: 10px;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        width: auto;
+        white-space: nowrap;
+    }
+
+    .boxCS {
+        width: 100%;
+        height: auto;
+        gap: 5px;
+    }
+
+    .create {
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .submit {
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .declaration {
+        height: 50px;
+        font-size: 18px;
+    }
 }

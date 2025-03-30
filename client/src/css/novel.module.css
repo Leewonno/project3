@@ -158,3 +158,16 @@
     box-sizing: border-box;
     padding: 10px;
 }
+
+@media (max-width: 600px) {
+    .novel{
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .slideContent{
+        padding: 0px 50px;
+        word-break: break-word;
+    }
+}

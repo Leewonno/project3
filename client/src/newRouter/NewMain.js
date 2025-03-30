@@ -45,6 +45,10 @@ export default function NewMain() {
     setSlideCount((prevCount) => (prevCount - 1 + slideImg.length) % slideImg.length);
   };
 
+  const handleNone = () => {
+    alert("준비중입니다.")
+  }
+
   const slideStyle = {
     transform: `translate(-${slideCount * 100}%, 0px)`,
   };
@@ -71,7 +75,7 @@ export default function NewMain() {
               {recentNovel.map((value, index) => {
                 return (
                   <A url={"/n/" + value.title} key={index} className={main.recentBox}>
-                    <img className={main.recentImg} src={value.cover_img} alt="최신작품"></img>
+                    <img className={main.recentImg} src={value.cover_img} alt="최신작품" />
                     <div className={main.recentName}>{value.title}</div>
                   </A>
                 )
@@ -85,7 +89,7 @@ export default function NewMain() {
             <div className={main.popularBox}>
               {popularNovel.map((value, index) => {
                 return (
-                  <A url={"/n/" + value.title} key={index}>
+                  <A url={"/n/" + value.title} key={index} style={{ 'width': '100%', 'display': 'flex', 'justify-content': 'center' }}>
                     <div className={main.popularItem}>
                       <div className={main.popularCoverImgBox}>
                         <img className={main.popularCoverImg} src={value.cover_img} alt="커버이미지"></img>
@@ -103,10 +107,10 @@ export default function NewMain() {
           <div className={main.boxCS}>
             <A url="/create" className={main.create}><FontAwesomeIcon icon={faMarker} /><span className={main.createText}>작품생성</span></A>
             <div className={main.submit}>
-              <div><FontAwesomeIcon icon={faPaperPlane} /><span className={main.createText}>투고하기</span></div>
+              <div onClick={handleNone}><FontAwesomeIcon icon={faPaperPlane} /><span className={main.createText}>투고하기</span></div>
             </div>
             <div className={main.declaration}>
-              <div><FontAwesomeIcon icon={faCircleInfo} /><span className={main.createText}>신고하기</span></div>
+              <div onClick={handleNone}><FontAwesomeIcon icon={faCircleInfo} /><span className={main.createText}>신고하기</span></div>
             </div>
           </div>
         </div>

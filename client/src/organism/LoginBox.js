@@ -32,6 +32,10 @@ export default function LoginBox() {
         }
     }
 
+    const handleNone = () => {
+        alert("준비중입니다.")
+    }
+
     // const handleLogin = async ()=>{
     //     const result = await axios({
     //         method:"POST",
@@ -59,13 +63,13 @@ export default function LoginBox() {
                 <LoginInputPw />
             </div>
             <div className={login.button_box}>
-                <Button className={login.login_btn} onClick={() => { handleLogin() }} onKeyDown={() => {handleLogin()}}>로그인</Button>
+                <Button className={login.login_btn} onClick={() => { handleLogin() }} onKeyDown={() => { handleLogin() }}>로그인</Button>
                 {/* <Button className={login.login_btn} onClick={()=>{handleLogin()}}>로그인</Button> */}
             </div>
             <div className={login.signup_box}>
                 <A url="/signup">회원가입</A>
                 |
-                <A>비밀번호 찾기</A>
+                <A onClick={handleNone}>비밀번호 찾기</A>
             </div>
         </div >
 

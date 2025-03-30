@@ -47,7 +47,7 @@ export default function NewNovelInfo() {
             <div className={novelinfo.dataBox}>
               <div className={novelinfo.dataBoxTop}>
                 <div className={novelinfo.name}>
-                  {value.name}
+                  {value.title}
                 </div>
                 <div className={novelinfo.data}>
                   <div className={novelinfo.dataText}>{value.write_name}</div>

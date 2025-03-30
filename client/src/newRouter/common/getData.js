@@ -100,6 +100,7 @@ export async function getPopularNovelList() {
     return result;
 }
 
+// 정렬페이지 데이터 가져오기
 export async function getSortData() {
     let popularResult = [];
     let recentResult = [];
@@ -117,6 +118,7 @@ export async function getSortData() {
     return { popular: popularResult, recent: recentResult };
 }
 
+// 유저 데이터 가져오기
 export async function getUser(email) {
     const docRef = doc(db, "user", email);
     const docSnap = await getDoc(docRef);
@@ -125,4 +127,35 @@ export async function getUser(email) {
     } else {
         return false;
     }
+}
+
+export async function getSearchData(search) {
+    let titleList = [];
+    let writerList = [];
+    try {
+        // 제목 검색
+        const q_title = query(
+            collection(db, "novel"),
+            where("title", ">=", search),
+            where("title", "<=", search + "\uf8ff")
+        );
+        const titleSnapshot = await getDocs(q_title);
+        titleSnapshot.forEach((doc) => {
+            titleList.push(doc.data());
+        });
+        // 작가명 검색
+        const q_writer = query(
+            collection(db, "novel"),
+            where("write_name", ">=", search),
+            where("write_name", "<=", search)
+        );
+        const writerSnapshot = await getDocs(q_writer);
+        writerSnapshot.forEach((doc) => {
+            writerList.push(doc.data());
+        });
+        return { title: titleList, writer: writerList }
+    } catch (e) {
+        return false;
+    }
+
 }
