@@ -45,6 +45,10 @@ export default function NewMain() {
     setSlideCount((prevCount) => (prevCount - 1 + slideImg.length) % slideImg.length);
   };
 
+  const handleNone = () => {
+    alert("준비중입니다.")
+  }
+
   const slideStyle = {
     transform: `translate(-${slideCount * 100}%, 0px)`,
   };
@@ -103,10 +107,10 @@ export default function NewMain() {
           <div className={main.boxCS}>
             <A url="/create" className={main.create}><FontAwesomeIcon icon={faMarker} /><span className={main.createText}>작품생성</span></A>
             <div className={main.submit}>
-              <div><FontAwesomeIcon icon={faPaperPlane} /><span className={main.createText}>투고하기</span></div>
+              <div onClick={handleNone}><FontAwesomeIcon icon={faPaperPlane} /><span className={main.createText}>투고하기</span></div>
             </div>
             <div className={main.declaration}>
-              <div><FontAwesomeIcon icon={faCircleInfo} /><span className={main.createText}>신고하기</span></div>
+              <div onClick={handleNone}><FontAwesomeIcon icon={faCircleInfo} /><span className={main.createText}>신고하기</span></div>
             </div>
           </div>
         </div>
