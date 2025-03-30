@@ -260,21 +260,9 @@
         height: 40vw;
     }
     
-    .slideBox {
-    }
-    
-    .slideBoxImg {
-    }
-    
     .slideBtnBox {
         top: 50%;
         transform: translateY(-50%);
-    }
-    
-    .slideLeftBtn {
-    }
-    
-    .slideRightBtn {
     }
     
     .recent {
@@ -282,21 +270,8 @@
         padding: 10px;
     }
     
-    .recentTitle {
-    }
-    
-    .recentBox {
-    }
-    
-    .recentBox:hover {
-    }
-    
     .recentItem {
         gap: 5px;
-    }
-    
-    .recentImg {
-        
     }
     
     .recentName {
@@ -313,41 +288,10 @@
         height: auto;
     }
     
-    .popularTitle {
-        
-    }
-    
     .popularBox {
         flex-wrap: wrap;
         gap: 5px;
-    }
-    
-    .popularItem {
-        
-    }
-    
-    .popularItem:hover {
-    }
-    
-    .popularCoverImgBox {
-        
-    }
-    
-    .popularCoverImg {
-        
-    }
-    
-    .popularName {
-        
-    }
-    
-    .popularMore {
-        
-    }
-    
-    .popularMoreBtn {
-        
-    }
+    }   
     
     .boxCS {
         width: 100%;
@@ -360,25 +304,13 @@
         font-size: 18px;
     }
     
-    .create:hover {
-    }
-    
-    .createText {
-    }
-    
     .submit {
         height: 50px;
         font-size: 18px;
     }
     
-    .submit:hover {
-    }
-    
     .declaration {
         height: 50px;
         font-size: 18px;
-    }
-    
-    .declaration:hover {
     }
 }
