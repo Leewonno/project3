@@ -38,6 +38,7 @@
     .informationBox{
         margin-top: 0;
         justify-content: center;
+        white-space: nowrap;
     }
     
     .information{
@@ -46,6 +47,7 @@
     }
     
     .myArea{
+        white-space: nowrap;
         font-size: 15px;
         justify-content: center;
         display: flex;

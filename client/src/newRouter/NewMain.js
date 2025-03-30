@@ -89,7 +89,7 @@ export default function NewMain() {
             <div className={main.popularBox}>
               {popularNovel.map((value, index) => {
                 return (
-                  <A url={"/n/" + value.title} key={index}>
+                  <A url={"/n/" + value.title} key={index} style={{'width':'100%'}}>
                     <div className={main.popularItem}>
                       <div className={main.popularCoverImgBox}>
                         <img className={main.popularCoverImg} src={value.cover_img} alt="커버이미지"></img>

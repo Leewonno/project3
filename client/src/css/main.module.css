@@ -289,9 +289,20 @@
     }
     
     .popularBox {
+        width: 100%;
         flex-wrap: wrap;
         gap: 5px;
-    }   
+    }
+
+    .popularItem{
+        width: 100%;
+        display: flex;
+    }
+
+    .popularCoverImgBox{
+        margin-bottom: 0;
+        width: 100%;
+    }
     
     .boxCS {
         width: 100%;
