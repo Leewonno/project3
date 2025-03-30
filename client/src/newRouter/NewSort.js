@@ -27,7 +27,7 @@ export default function NewSort() {
         <div className={sort.popularTitle}><FontAwesomeIcon icon={faFire} /> 인기작품</div>
         {novelList.map((value, index) => {
           return (
-            <A url={"/n/" + value.id} key={index}>
+            <A url={"/n/" + value.title} key={index}>
               <div className={sort.popularItem}>
                 <div className={sort.popularImgBox}>
                   <img className={sort.popularImg} src={value.cover_img} alt="커버사진"></img>
