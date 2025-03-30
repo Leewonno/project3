@@ -19,7 +19,6 @@ export async function createNovel(title, data) {
 // 회차 생성
 export async function createStory(title, data) {
     const res = await getNovel(title);
-    console.log(String(data.round))
     if (res.result) {
         try {
             const storyCollectionRef = doc(db, "novel", title, "story", String(data.round)); // 해당 novel 문서 참조

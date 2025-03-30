@@ -67,6 +67,10 @@ export default function NewNovel() {
     setSlideCount((prevCount) => (prevCount - 1 + content.length) % content.length);
   };
 
+  const handleChangeRound = () => {
+    setSlideCount(0);
+  }
+
   const slideStyle = {
     transform: `translate(-${slideCount * 100}%, 0px)`,
   };
@@ -102,8 +106,8 @@ export default function NewNovel() {
         {rangeValue} / {content.length}
       </div>
       <div className={novel.prevNextBtnBox}>
-        {prev === null ? <div></div> : <div className={novel.prevNextBtn} title="이전 화"><A url={"/n/" + params.id + "/detail?round=" + prev}><FontAwesomeIcon color='black' icon={faCircleChevronLeft} /></A></div>}
-        {next === null ? <div></div> : <div className={novel.prevNextBtn} title="다음 화"><A url={"/n/" + params.id + "/detail?round=" + next}><FontAwesomeIcon color='black' icon={faCircleChevronRight} /></A></div>}
+        {prev === null ? <div></div> : <div className={novel.prevNextBtn} title="이전 화"><A onClick={handleChangeRound} url={"/n/" + params.id + "/detail?round=" + prev}><FontAwesomeIcon color='black' icon={faCircleChevronLeft} /></A></div>}
+        {next === null ? <div></div> : <div className={novel.prevNextBtn} title="다음 화"><A onClick={handleChangeRound} url={"/n/" + params.id + "/detail?round=" + next}><FontAwesomeIcon color='black' icon={faCircleChevronRight} /></A></div>}
       </div>
       {slideCount === content.length - 1 ? (<div className={novel.writerBox}><div className={novel.writerTitle}>작가의 말</div><div className={novel.writerComment}>{data.writer_comment}</div></div>) : (<div></div>)}
 
