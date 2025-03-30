@@ -109,3 +109,15 @@
     border-radius: 25px;
     cursor: pointer;
 }
+
+@media (max-width: 600px) {
+    .edit{
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+    .saveBtn{
+        padding: 5px 20px;
+    }
+}
