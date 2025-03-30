@@ -5,7 +5,7 @@ import axios from "axios";
 import A from "../atom/A";
 
 
-export default function Search(){
+export default function NewSearch(){
 
     const [searchParams] = useSearchParams();
     const query = searchParams.get("q");
@@ -15,17 +15,17 @@ export default function Search(){
 
     useEffect(()=>{
         const getData = async ()=>{
-            const res = await axios({
-                method:"GET",
-                url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/search/query",
-                params:{
-                    query,
-                }
-            })
+            // const res = await axios({
+            //     method:"GET",
+            //     url:"https://port-0-novelcutserver-12fhqa2blnvnggha.sel5.cloudtype.app/search/query",
+            //     params:{
+            //         query,
+            //     }
+            // })
 
-            console.log(res);
-            setNovelList(res.data.novelList);
-            setWriterList(res.data.writerList);
+            // console.log(res);
+            // setNovelList(res.data.novelList);
+            // setWriterList(res.data.writerList);
         }
 
         getData();

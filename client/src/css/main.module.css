@@ -101,6 +101,10 @@
     font-size: 18px;
     color: black;
     margin-left: 10px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    width: auto;
+    white-space: nowrap;
 }
 
 .second{
@@ -158,6 +162,10 @@
     color: black;
     font-size: 15px;
     margin-bottom: 5px;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow-x: hidden;
+    white-space: nowrap;
 }
 
 .popularMore{

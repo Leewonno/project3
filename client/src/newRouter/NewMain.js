@@ -12,7 +12,7 @@ import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import A from "../atom/A";
-import { getNovel, getNovelList } from "./common/getData";
+import { getPopularNovelList, getReconetNovelList } from "./common/getData";
 
 
 export default function NewMain() {
@@ -23,17 +23,15 @@ export default function NewMain() {
   const [popularNovel, setPopularNovel] = useState([]);
 
   useEffect(() => {
-    const getRecentData = () => {
-      // getNovel();
-      // getNovelList();
-      // setRecentNovel(res.data.list);
+    const getRecentData = async () => {
+      const res = await getReconetNovelList();
+      setRecentNovel(res);
     }
 
     const getPopularData = async () => {
-      // setPopularNovel(res.data.list);
+      const res = await getPopularNovelList();
+      setPopularNovel(res);
     }
-    getNovel();
-    getNovelList();
     getRecentData();
     getPopularData();
     setSlideImg([slide, slide2, slide3, slide2, slide3]);
@@ -72,9 +70,9 @@ export default function NewMain() {
             <div className={main.recentItem}>
               {recentNovel.map((value, index) => {
                 return (
-                  <A url={"/n/" + value.id} key={index} className={main.recentBox}>
+                  <A url={"/n/" + value.title} key={index} className={main.recentBox}>
                     <img className={main.recentImg} src={value.cover_img} alt="최신작품"></img>
-                    <div className={main.recentName}>{value.name}</div>
+                    <div className={main.recentName}>{value.title}</div>
                   </A>
                 )
               })}
@@ -87,13 +85,13 @@ export default function NewMain() {
             <div className={main.popularBox}>
               {popularNovel.map((value, index) => {
                 return (
-                  <A url={"/n/" + value.id} key={index}>
+                  <A url={"/n/" + value.title} key={index}>
                     <div className={main.popularItem}>
                       <div className={main.popularCoverImgBox}>
                         <img className={main.popularCoverImg} src={value.cover_img} alt="커버이미지"></img>
                       </div>
                       <div className={main.popularName}>
-                        {value.name}
+                        {value.title}
                       </div>
                     </div>
                   </A>

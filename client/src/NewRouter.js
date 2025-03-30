@@ -1,17 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import NotFound from './router/404';
-import Sort from './router/Sort';
-import Search from './router/Search';
-import Edit from './router/Edit';
-import NovelInfo from './router/NovelInfo';
-import CreateEdit from './router/CreateEdit';
 import EditPatch from './router/EditPatch';
 import NewMain from './newRouter/NewMain';
 import NewNovel from './newRouter/NewNovel';
 import NewCreate from './newRouter/NewCreate';
 import NewLogin from './newRouter/NewLogin';
 import NewSignup from './newRouter/NewSignup';
+import NewNovelInfo from './newRouter/NewNovelInfo';
+import NewCreateEdit from './newRouter/NewCreateEdit';
+import NewEdit from './newRouter/NewEdit';
+import NewSort from './newRouter/NewSort';
+import NewSearch from './newRouter/NewSearch';
 
 const router = createBrowserRouter([
   {
@@ -32,11 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'sort',
-        element: <Sort />,
+        element: <NewSort />,
       },
       {
         path: 'search',
-        element: <Search />,
+        element: <NewSearch />,
       },
       {
         path: 'create',
@@ -44,11 +44,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'create/detail',
-        element: <CreateEdit />,
+        element: <NewCreateEdit />,
       },
       {
         path: 'edit',
-        element: <Edit />,
+        element: <NewEdit />,
       },
       {
         path: 'edit/detail',
@@ -59,13 +59,7 @@ const router = createBrowserRouter([
         children:[
           {
             path:':id',
-            element: <NovelInfo />,
-            children: [
-              {
-                path: ':round',
-                element: <NewNovel />,
-              },
-            ]
+            element: <NewNovelInfo />,
           },
           {
             path:':id',
@@ -77,7 +71,6 @@ const router = createBrowserRouter([
             ]
           }
         ]
-        
       },
     ],
     errorElement: <NotFound />,
