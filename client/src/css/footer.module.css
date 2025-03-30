@@ -27,3 +27,27 @@
     font-weight: 600;
     margin-top: 5px;
 }
+
+@media (max-width: 600px) {
+    .footerBox{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    
+    .informationBox{
+        margin-top: 0;
+        justify-content: center;
+    }
+    
+    .information{
+        font-size: 14px;
+        margin-right: 5px;
+    }
+    
+    .myArea{
+        font-size: 15px;
+        justify-content: center;
+        display: flex;
+    }
+}

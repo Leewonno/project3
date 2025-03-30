@@ -60,9 +60,6 @@
 
 
 @media (max-width: 600px) {
-    .header{
-    }
-    
     .box{
         width: 100%;
         padding: 20px;
@@ -74,6 +71,7 @@
     }
     
     .right{
+        white-space: nowrap;
     }
     
     .left{
