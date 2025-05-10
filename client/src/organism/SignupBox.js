@@ -6,7 +6,7 @@ import SignupInputWritename from "../molecule/SignupInputWritename";
 import SingupBtnBox from '../molecule/SingupBtnBox'
 import signup from "../css/signup.module.css"
 
-import SignupContext, {SignupProvider} from '../store/signup-context';
+import {SignupProvider} from '../store/signup-context';
 
 export default function SingupBox(){
     return <>

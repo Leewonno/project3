@@ -15,6 +15,9 @@ export default function LoginBox() {
     const navigate = useNavigate();
 
     const handleLogin = async () => {
+        if (context.loginIdInput.length === 0 || context.loginPwInput.length === 0){
+            return;
+        }
         const data = {
             email: context.loginIdInput,
             password: context.loginPwInput,
