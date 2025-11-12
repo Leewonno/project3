@@ -87,7 +87,7 @@ NOVELCUT은 소설 읽기에 새로운 재미와 경험을 더하기 위해 개�
 ### 인프라 및 서비스
 
 - **AWS EC2** : 백엔드 서버(Node.js) 호스팅
-- **AWS RDS** : 데이터베이스를 운영
+- **AWS RDS** : 데이터베이스 운영
 - **AWS S3**: 파일 저장소 (이미지 파일 업로드)
 - **MySQL**: 관계형 데이터베이스
 - **Firebase**: Firestore, Authentication, Hosting, Storage
