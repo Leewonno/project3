@@ -1,5 +1,4 @@
-
-<img width="1920" height="540" alt="novelcut" src="https://github.com/user-attachments/assets/3a5c9ee5-b602-4921-aa16-c82c78d4c64d" />
+![image](https://github.com/user-attachments/assets/3a5c9ee5-b602-4921-aa16-c82c78d4c64d)
 
 # NOVELCUT, 웹소설 연재 사이트
 
