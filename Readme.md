@@ -1,18 +1,10 @@
-![image](https://github.com/user-attachments/assets/3a5c9ee5-b602-4921-aa16-c82c78d4c64d)
 
 # NOVELCUT, 웹소설 연재 사이트
-
-**NOVELCUT(노벨컷)** 은 사용자가 직접 웹소설을 작성하고 공유할 수 있는 연재 플랫폼입니다.
-네이버웹툰의 컷툰 서비스처럼 컷 형식 보기 방식을 도입했으며,
-프론트엔드는 React, 백엔드는 Node.js/Express 기반으로 구축되었습니다.
-
-> 이후 리팩토링을 통해 Node.js의 백엔드 서버를 이용하지 않고, Firebase를 활용한 서버리스 환경으로 전환하였으며, 이를 반영해 서비스가 재배포되었습니다.
-
-[바로가기](https://novelcut-1f6f2.web.app)
+![image](https://github.com/user-attachments/assets/3a5c9ee5-b602-4921-aa16-c82c78d4c64d)
 
 <br />
 
-## 📘 목차
+<!-- ## 📘 목차
 
 - [프로젝트 개요](#-프로젝트-개요)
 - [개발 목적](#-개발-목적)
@@ -21,12 +13,23 @@
 - [프로젝트 구조](#-프로젝트-구조)
 - [설치 및 실행](#-설치-및-실행)
 
-<br />
+<br /> -->
 
 ## 📋 프로젝트 개요
 
+**NOVELCUT(노벨컷)** 은 사용자가 직접 웹소설을 작성하고 공유할 수 있는 연재 플랫폼입니다.
+네이버웹툰의 컷툰 서비스처럼 컷 형식 보기 방식을 도입했습니다.
+
+> 이후 리팩토링을 통해 Node.js의 백엔드 서버를 이용하지 않고, Firebase를 활용한 서버리스 환경으로 전환하였으며, 이를 반영해 서비스가 재배포되었습니다.
+
+[🔗 바로가기](https://novelcut-1f6f2.web.app)
+
+---
+
 ### Frontend
-React를 기반으로 구축되었습니다. 아토믹 디자인 패턴(Atomic Design Pattern)을 적용하여 컴포넌트를 재사용 가능한 단위로 구성했습니다. Firebase를 통한 사용자 인증과 DB, Storage를 통해 글 쓰기, 이미지 업로드를 지원하며, React Context API를 통한 전역 상태 관리를 구현했습니다.
+React를 기반으로 구축되었습니다.
+아토믹 디자인 패턴(Atomic Design Pattern)을 적용하여 컴포넌트를 재사용 가능한 단위로 구성했습니다.
+Firebase Authentication을 통한 사용자 인증과 Firestore, Storage를 통해 글 쓰기, 이미지 업로드를 지원하며, React Context API를 통한 전역 상태 관리를 구현했습니다.
 
 **주요 특징:**
 - Atomic Design Pattern 적용 (Atom, Molecule, Organism)
@@ -34,8 +37,12 @@ React를 기반으로 구축되었습니다. 아토믹 디자인 패턴(Atomic D
 - 모듈화된 CSS 스타일링
 - 반응형 웹 디자인
 
+---
+
 ### Backend
-Node.js와 Express 프레임워크를 사용하여 구축되었습니다. MySQL과 Sequelize ORM을 통해 데이터를 관리하며, JWT(JSON Web Token)를 사용한 사용자 인증과 bcrypt를 통한 비밀번호 암호화를 구현했습니다. AWS S3를 통한 파일 업로드 기능을 제공합니다.
+Node.js와 Express 프레임워크를 사용하여 구축되었습니다.
+MySQL과 Sequelize ORM을 통해 데이터를 관리하며, JWT(JSON Web Token)를 사용한 사용자 인증과 bcrypt를 통한 비밀번호 암호화를 구현했습니다.
+AWS S3를 통한 파일 업로드 기능을 제공합니다.
 
 **주요 특징:**
 - RESTful API 설계
@@ -45,27 +52,51 @@ Node.js와 Express 프레임워크를 사용하여 구축되었습니다. MySQL�
 
 <br />
 
+## ⏱️ 개발 기간
+2023.10.08 ~ 2023.10.15
+
+
 ## 💡 개발 목적
 위아래로 스크롤하는 소설은 이제 그만!<br />
 조금 더 색다르고 새로운 방식으로 소설을 읽을 수는 없을까?<br />
 
-NOVELCUT은 소설 읽기에 새로운 재미와 경험을 더하기 위해 개발되었습니다.
+> 노벨컷(NOVELCUT)은 소설 읽기에 새로운 재미와 경험을 더하기 위해 개발되었습니다.
 
 <br />
 
 ## ⚡️ 주요 기능
 
-- 소설 읽기/생성/수정/삭제 : Firebase Firestore를 통한 데이터 관리
-- 사용자 인증 : Firebase Authentication 을 통한 사용자 인증
-- 전역 상태 관리 : Context API를 통한 전역 상태 관리
-- 검색 및 정렬 : 제목, 작가명 검색, 최신순, 인기순(조회수) 정렬
-- 이미지 업로드 : AWS S3 또는 Firebase Storage를 통한 이미지 업로드
+- 소설 생성 및 회차 연재 기능을 제공합니다.
+- 컷 형식 보기 기능을 제공합니다.
+- 제목, 작가명 검색 기능을 제공하니다.
+- 최신순, 인기순(조회수)으로 소설 작품을 정렬해 제공합니다.
+- Context API를 통한 전역 상태 관리합니다.
+- JWT, Bcrypt를 통한 회원가입 및 인증 기능을 구현했습니다.
+- CLOUDTYPE, Firebase(재배포) 서비스를 이용하여 배포했습니다.
+- AWS S3 또는 Firebase Storage를 통한 이미지 업로드 기능을 제공합니다.
 
 <br />
 
 ## ⚙️ 사용 기술
 
-### Frontend
+<div style="display: flex; gap: 5px;">
+    <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white" />
+    <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" />
+    <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white" />
+    <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=white" />
+    <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
+    <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=white" />
+</div>
+
+<br />
+
+- **React** : SPA를 통한 부드러운 UI 동작을 위해 사용하였습니다.
+- **Node.js** : JavaScript 단일 언어로 웹 사이트를 개발하기 위해 사용하였습니다.
+- **MySQL** : 무료로 사용할 수 있는 오픈소스이며, 다양한 운영체제에서 사용 가능하여 사용하였습니다.
+- **Firebase** : 비용 절약을 위해 재배포를 진행하면서 Firestore, Authentication, Hosting, Storage 서비스를 이용했습니다.
+- **AWS** : EC2(Node.js 호스팅), RDS(MySQL 운영), S3(이미지 파일 업로드)를 위해 이용했습니다.
+
+<!-- ### Frontend
 
 | 기술 | 버전 | 용도 |
 |------|------|------|
@@ -82,15 +113,11 @@ NOVELCUT은 소설 읽기에 새로운 재미와 경험을 더하기 위해 개�
 | **Express** | 4.18.2 | 웹 프레임워크 |
 | **bcrypt** | 5.1.1 | 비밀번호 해싱 |
 | **jsonwebtoken** | 9.0.2 | JWT 토큰 생성 및 검증 |
-| **multer-s3** | 2.10.0 | AWS S3 파일 업로드 |
+| **multer-s3** | 2.10.0 | AWS S3 파일 업로드 | -->
 
-### 인프라 및 서비스
+<!-- ### 인프라 및 서비스
 
-- **AWS EC2** : 백엔드 서버(Node.js) 호스팅
-- **AWS RDS** : 데이터베이스 운영
-- **AWS S3**: 파일 저장소 (이미지 파일 업로드)
-- **MySQL**: 관계형 데이터베이스
-- **Firebase**: Firestore, Authentication, Hosting, Storage
+- **MySQL**: 관계형 데이터베이스 -->
 
 <br />
 
@@ -145,6 +172,7 @@ cd client
 # 의존성 설치
 npm install
 
+
 # 환경 변수 설정 (client 폴더에 .env 파일 생성)
 # REACT_APP_API_KEY=your_firebase_api_key
 # REACT_APP_AUTH_DOMAIN=your_firebase_auth_domatin
@@ -152,6 +180,7 @@ npm install
 # REACT_APP_STORAGE_BUCKET=your_firebase_storage_bucket
 # REACT_APP_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
 # REACT_APP_APP_ID=your_firebase_app_id
+
 
 # 개발 서버 실행
 npm start
@@ -166,6 +195,7 @@ cd server
 # 의존성 설치
 npm install
 
+
 # 환경 변수 설정 (server 폴더에 .env 파일 생성)
 # .env 파일에 다음 내용 추가:
 # DB_USER=your_db_user
@@ -176,6 +206,7 @@ npm install
 # SECRET_ACCESSKEY=your_aws_secret_key
 # AWS_BUCKET=your_s3_bucket_name
 # REGION=your_aws_region
+
 
 # 데이터베이스 마이그레이션 (Sequelize)
 npx sequelize-cli db:migrate
