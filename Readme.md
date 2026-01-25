@@ -90,7 +90,7 @@ AWS S3를 통한 파일 업로드 기능을 제공합니다.
 
 <br />
 
-- **React** : SPA를 통한 부드러운 UI 동작을 위해 사용하였습니다.
+- **React** : 높은 개발 생산성을 위해 선택했습니다.
 - **Node.js** : JavaScript 단일 언어로 웹 사이트를 개발하기 위해 사용하였습니다.
 - **MySQL** : 무료로 사용할 수 있는 오픈소스이며, 다양한 운영체제에서 사용 가능하여 사용하였습니다.
 - **Firebase** : 비용 절약을 위해 재배포를 진행하면서 Firestore, Authentication, Hosting, Storage 서비스를 이용했습니다.
